@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 2.6667rem;
+            height: 2.6667rem;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width:2.6667rem"></div>
+    <img src="images/offset和style的区别.png" alt="offset和style的区别">
+    <img src="images/三大系列大小对比.png" alt="三大系列大小对比">
+    <img src="images/三大系列距离对比.png" alt="三大系列距离对比">
+    <script>
+        var box = document.querySelector('div');
+        console.log(box.offsetWidth);
+        // style.width的区别是必须写在行内样式表中才可以获取宽度
+        console.log(box.style.width);
+        // offsetWidth是只读属性，不能修改元素的宽度
+        // box.offsetWidth = '4rem';
+        // style.width既可以读也可以写
+        box.style.width = '4rem';
+    </script>
+</body>
+
+</html>

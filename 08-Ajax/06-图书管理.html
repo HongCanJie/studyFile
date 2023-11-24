@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/jquery.js"></script>
+</head>
+
+<body style="padding: 15px;">
+    <!-- 添加图书的panel面板 -->
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">添加图书</h3>
+        </div>
+        <!-- 注：form-inline是booststrap中的表单内容一行排布的类 -->
+        <div class="panel-body form-inline">
+            <div class="input-group">
+                <div class="input-group-addon">书名</div>
+                <input type="text" class="form-control" id="iptBookname" placeholder="请输入书名">
+            </div>
+            <div class="input-group">
+                <div class="input-group-addon">作者</div>
+                <input type="text" class="form-control" id="iptAuthor" placeholder="请输入作者">
+            </div>
+            <div class="input-group">
+                <div class="input-group-addon">出版社</div>
+                <input type="text" class="form-control" id="iptPublisher" placeholder="请输入出版社">
+            </div>
+            <!-- 注：btn btn-primary是使用booststrap来设置按钮的样式 -->
+            <button id="btnAdd" class="btn btn-primary">添加</button>
+        </div>
+    </div>
+
+    <!-- 图书的表格 -->
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>出版社</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="tb">
+        </tbody>
+    </table>
+    <script>
+        $(function () {
+            // 获取数据
+            function getBookList() {
+                $.get('http://www.liulongbin.top:3006/api/getbooks', function (res) {
+                    //判断数据是否获取成功，status为200即为成功
+                    if (res.status != 200) return alert('获取数据失败！');
+                    // 定义数组存放拼接的字符串单元格
+                    var rows = [];
+                    // 循环数据存放到数组里面
+                    $.each(res.data, function (i, item) {
+                        rows.push('<tr><td>' + item.id + '</td><td>' + item.bookname + '</td><td>' + item.author + '</td><td>' + item.publisher +
+                            '</td><td><a href="javascript:;" class="del"  data-id="' + item.id + '">删除</a></td></tr>')
+                    })
+                    $('#tb').empty().append(rows.join(''));//empty是清空表格里面的内容
+                })
+            }
+            getBookList();
+
+            // 删除按钮
+            // 通过事件代理的方式为动态添加的元素绑定点击事件
+            $('#tb').on('click', '.del', function () {
+                // attr获取自定义属性的方法
+                var id = $(this).attr('data-id');
+                // console.log(id);
+                $.get('http://www.liulongbin.top:3006/api/delbook', { id: id }, function (res) {
+                    if (res.status !== 200) return alert('删除图书失败！');
+                    // 重新获取数据
+                    getBookList();
+                })
+            })
+
+            // 添加按钮
+            $('#btnAdd').on('click', function () {
+                var bookname = $('#iptBookname').val();
+                var author = $('#iptAuthor').val();
+                var publisher = $('#iptPublisher').val();
+                if (bookname <= 0 || author <= 0 || publisher <= 0) return alert('请填写完整的图书信息！');
+                // console.log('ok');
+                $.post('http://www.liulongbin.top:3006/api/addbook', { bookname: bookname, author: author, publisher: publisher }, function (res) {
+                    // 图书添加成功的状态应为201
+                    if (res.status !== 201) return alert('添加图书失败！');
+                    // 重新刷新数据
+                    getBookList();
+                    // 清空输入框
+                    $('#iptBookname').val('');
+                    $('#iptAuthor').val('');
+                    $('#iptPublisher').val('');
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

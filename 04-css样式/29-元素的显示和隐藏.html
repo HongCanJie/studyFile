@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 元素显示和隐藏的方法主要有三种：display、overflow、visbility。 */
+
+        /* 方法一：display(注：隐藏了之后不占有原先的位置，隐藏的元素在html结构中并没有消失，一般用来频繁的切换显示和隐藏) */
+        .box1 {
+            /* 元素隐藏 */
+            /* display: none; */
+            /* 元素显示 */
+            display: block;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+
+        /* 方法二：visbility(注：隐藏了之后位置仍然保留) */
+        .box3 {
+            /* 元素隐藏 */
+            visibility: hidden;
+            /* 元素显示 */
+            /* visibility: visible; */
+            width: 200px;
+            height: 200px;
+            margin-top: 40px;
+            background-color: pink;
+        }
+
+        .box4 {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+
+        /* 方法三：overflow() */
+        .box5 {
+            /* 溢出隐藏 */
+            overflow: hidden;
+            /* 溢出滚动显示,没溢出也显示滚动条   */
+            /* overflow: scroll; */
+            /* 在溢出需要时滚动条显示，没溢出就不显示滚动条 */
+            overflow: auto;
+            /* 溢出显示 */
+            /* overflow: visible; */
+            width: 200px;
+            height: 200px;
+            margin-top: 40px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+
+    <div class="box3"></div>
+    <div class="box4"></div>
+
+    <div class="box5">
+        会议指出，当前，全省经济运行总体平稳、稳中向好。
+        我们要把深入学习贯彻习近平总书记在中共中央政治局会议上的重要讲话同习近平总书记在辽宁考察时的重要讲话精神结合起来，坚持稳中求进工作总基调，完整、准确、全面贯彻新发展理念，服务融入新发展格局，着力推动高质量发展，全面落实疫情要防住、经济要稳住、发展要安全的重要要求，坚定信心、激发斗志，把维护国家“五大安全”这个政治使命、扩大内需这个战略基点、供给侧结构性改革这条主线有机结合起来，进一步谋划和建设富有时代感的高质量项目群，充分发挥产业底蕴和科技优势，只争朝夕突破“卡脖子”问题，为国家高水平科技自立自强、产业链供应链安全可控贡献辽宁智慧和力量，努力在新时代东北振兴上展现更大担当和作为，奋力开创辽宁振兴发展新局面，以实际行动迎接党的二十大胜利召开。
+    </div>
+</body>
+
+</html>

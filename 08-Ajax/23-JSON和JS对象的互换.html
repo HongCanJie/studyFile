@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="images/序列化与反序列化.png" alt="序列化与反序列化">
+    <script>
+        // 1.JSON字符串对象转换为JS对象
+        // var jsonstr = '{"a":"hello","b":"world"}';
+        // var obj = JSON.parse(jsonstr);
+        // console.log(obj);
+
+        // 2.js对象转化为json字符串
+        // var obj1 = { a: '10', b: '20' };
+        // var str = JSON.stringify(obj1);
+        // console.log(str);
+        // console.log(typeof (str));
+
+
+        // 3.使用案例：
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', 'http://www.liulongbin.top:3006/api/getbooks');
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(xhr.responseText);
+                console.log(typeof (xhr.responseText));
+                // JSON转化为JS对象
+                var result = JSON.parse(xhr.responseText);
+                console.log(result);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 背景属性：背景色、背景图片、背景平铺、背景图位置、背景附着、背景色的半透明 */
+        /* 优点：方便控制位置，适用于超大的图片或者装饰性的小图片 */
+        .color {
+            width: 200px;
+            height: 200px;
+            /* background-color: transparent;  (将背景设置为透明色即默认的无色状态) */
+            /* 设置背景色 */
+            background-color: skyblue;
+        }
+
+        .img {
+            width: 600px;
+            height: 500px;
+            /* 设置背景图片（方便控制图片的位置，用于装饰性的小图片和超大的背景图片）(注意不要漏了url) */
+            background-image: url(https://img2.baidu.com/it/u=936583913,158118853&fm=253&fmt=auto&app=138&f=PNG?w=400&h=400);
+            /* 1.背景图片不平铺（默认是平铺状态） */
+            background-repeat: no-repeat;
+            /* 2.背景图片平铺 */
+            /* background-repeat: repeat; */
+            /* 3.背景图片沿着x轴平铺 */
+            /* background-repeat: repeat-x; */
+            /* 4.背景图片沿着y轴平铺 */
+            /* background-repeat: repeat-y; */
+            /* 页面的背景颜色和背景图片可以同时加入 */
+            background-color: skyblue;
+
+            /* background-position: x   y 方位名词;   */
+            /* background-position: center top; */
+            /* 如果是方位名词right center 和 center right效果是等价的，没有顺序关系 */
+            /* background-position: right center; */
+            /* background-position: center right; */
+            /* 水平x靠右对齐，第二个参数y省略则是垂直居中 */
+            /* background-position: right; */
+            /* 水平x轴省略是居中对齐，第二个参数y轴显示是顶部对齐 */
+            /* background-position: top; */
+
+            /* background-position: x y精确单位;   */
+            /* 如果是精确单位第一个一定是x轴坐标，第二个一定是y轴坐标 */
+            /* background-position: 20px 40px; */
+            /* 如果只写一个值，那一定是x轴的值，y轴省略默认居中 */
+            /* background-position: 20px; */
+
+            /* background-position: x y 混合单位; */
+            /* 混合单位第一个值一定是x轴坐标，第二个值一定是y轴坐标 */
+            /* 一定是x为20px  y是center 等价于 background-position: 20px */
+            /* background-position: 20px center; */
+            background-position: center 20px;
+
+            /* background-attachment: fixed; 背景图固定  scroll 背景图滚动 */
+            /* 背景图固定会产生视觉效果 */
+        }
+
+        .rgba {
+            width: 300px;
+            height: 300px;
+            /* 背景半透明 */
+            background: rgba(0, 0, 0, .3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="color"></div>
+    <div class="img"></div>
+    <div class="rgba"></div>
+    <img src="images/背景总结.png" alt="背景总结">
+</body>
+
+</html>

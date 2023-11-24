@@ -1,0 +1,42 @@
+// 1.定义一个颜色变量
+// less的优点是在原先css的基础上引入了变量和计算，方便后期的代码维护
+// 变量名首位不能是数字 、 变量名中不能有@#~等符号  、 变量名区分大小写
+@color: skyblue;
+@font14: 20px;
+// 3.less的运算:两个数参与运算 如果只有一个数有单位，则最后的结果就以这个单位为准
+// 如果两个数都有单位，而且是不一样的单位，最后的结果以第一个单位为准(注意：运算符的左右两边必须用空格隔开)
+// 除法运算中必须左右两边加括号才能运算，否则不会出结果
+@border: 5px + 5;
+@baseFont: 2rem;
+
+body {
+    background-color: @color;
+}
+
+div {
+    &:nth-child(1) {
+        width: (200px + 5) * 2;
+        height: (200px / @baseFont);
+        background-color: #666 - #444;
+        font-size: @font14;
+        // 3.less的运算
+        border: @border solid blue;
+    }
+}
+
+// 2.less嵌套 子元素的样式直接写到父元素里面
+.header {
+    width: 200px;
+    height: 200px;
+    background-color: orange;
+
+    a {
+        color: purple;
+
+        // 如果有伪类选择器或伪元素选择器或交集选择器  我们内层选择器的前面需要加&
+        // 如果有&符号,它就被解析为父元素自身或父元素的伪类。
+        &:hover {
+            color: green;
+        }
+    }
+}

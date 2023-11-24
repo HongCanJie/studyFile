@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.keyup按键弹起的时候触发
+        // document.onkeyup = function() {
+        //         console.log('我弹起了');
+        //     }
+        document.addEventListener('keyup', function() {
+                console.log('我弹起了');
+            })
+            // 2.keydown按键按下的时候触发
+        document.addEventListener('keydown', function() {
+                console.log('我按下了');
+            })
+            // 3.keypress按键按下的时候触发(不能识别功能键 如alt或shift、箭头等)
+        document.addEventListener('keypress', function() {
+                console.log('我按下了press');
+            })
+            // 4.三个事件的执行顺序永远是keydown--keypress--keyup (与方法写在前面和写在后面没有关系)
+
+        // 5.键盘事件的对象
+        // 注意：keyup和keydown事件不区分字母大小写得到的都是相同的ASCII值
+        // keypress事件区分大小写
+        document.addEventListener('keyup', function(e) {
+            // console.log(e);
+            console.log('UP:' + e.keyCode); //获取键盘按键的ASCII值
+        })
+        document.addEventListener('keypress', function(e) {
+            // console.log(e);
+            console.log('PRESS:' + e.keyCode); //获取键盘按键的ASCII值
+        })
+    </script>
+</body>
+
+</html>

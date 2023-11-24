@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 声明变量var
+        var age;
+        // 赋值
+        age = 10;
+        // 输出结果
+        console.log(age);
+
+
+
+
+        // 声明变量并赋值(注意赋值字母或字符需要加引号)
+        var sex = '男';
+        // 输出结果
+        console.log(sex);
+
+
+
+        // 变量使用案例
+        var myname = '旗木卡卡西';
+        var address = '火影村';
+        var age = 30;
+        var email = '1111111qq.com';
+        console.log(myname);
+        console.log(address);
+        console.log(email);
+
+
+
+        /* 
+        1.输入姓名
+        2.弹出用户输入的姓名
+        */
+        var n1 = prompt('请输入姓名:');
+        alert(n1);
+
+
+
+        /* 注意：
+        1.变量的重新赋值后会被覆盖；     
+        2.同时声明多个变量之间用英文逗号隔开；  var qq = 160, address = '火影村', n1 = '佐助';      
+        3.是声明变量没有赋值结果会是undefined；      
+        4.不声明而且不赋值直接使用会报错；    
+        5.不声明直接使用不报错!!!
+        6.不要使用关键词命名
+        7.尽量不要使用name命名
+        */
+        // 4.
+        // console.log(qq);
+        // 5.
+        qq = 160;
+        console.log(qq);
+
+
+
+        // 变量值的交换
+        // 1.先把apple1的值给临时变量
+        // 2.把apple2的值给apple1
+        // 2.把临时变量的值给apple2
+        var temp;
+        var apple1 = '青苹果';
+        var apple2 = '红苹果';
+
+        // 交换(冒泡)
+        temp = apple1;
+        apple1 = apple2;
+        apple2 = temp;
+        console.log(apple1);
+        console.log(apple2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

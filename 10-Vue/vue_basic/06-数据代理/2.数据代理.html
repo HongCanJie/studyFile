@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 通过obj1实现对obj2的数据代理
+        let obj1 = { x: 100 };
+        let obj2 = { y: 200 };
+
+        Object.defineProperty(obj2, 'x', {
+            get() {
+                // 返回对象obj1的x属性的值
+                return obj1.x;
+            },
+            set(value) {
+                // 通过obj2的x的属性修改obj1的x的属性的值
+                obj1.x = value;
+            }
+        })
+    </script>
+</body>
+
+</html>

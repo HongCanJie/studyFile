@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- GET传递参数后会显示在导航栏中，POST传递参数不会显示在导航栏中，提高安全性 -->
+    <!-- get适合提交少量、简单的数据 -->
+    <!-- post适合提交大量、复杂的数据，开发中一般常用post，安全性高 -->
+    <!-- 1.action规定url的路径 -->
+    <!-- 2.target规定在何处打开url地址 -->
+    <!-- 3.method规定以何种方式打开 -->
+    <!-- 4.enctype发送表单数据前如何对数据进行编码，默认application/x-www-form-urlencoded
+        如果有文件上传一定要设置为multiparty/form-data
+    -->
+    <form action="/action" target="_blank" method="post">
+        <input type="text" name="email_or_moblie">
+        <input type="password" name="password">
+        <button type="submit">提交</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ol>
+    <img src="images/jQuery筛选选择器.png" alt="">
+    <script>
+        $(function () {
+            // 第一个
+            $('ul li:first').css('color', 'red');
+            // 第三个
+            $('ul li:eq(2)').css('color', 'blue');
+            // 奇数行
+            $('ol li:odd').css('color', 'pink');
+            // 偶数行
+            $('ol li:even').css('color', 'yellow');
+        })
+    </script>
+</body>
+
+</html>

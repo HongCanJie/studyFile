@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var ary = [{
+            id: 1,
+            name: '张三'
+        }, {
+            id: 2,
+            name: '李四'
+        }];
+        // 数组的find方法用于找出第一个符合条件的数组成员，如果没有找到就返回undefined
+        // find方法可以接受一个回调函数作为参数，该回调函数会在数组中的每个元素上执行，直到找到符合条件的元素
+        // 该回调函数接收三个参数：当前元素、当前元素索引和数组本身。回调函数中需要返回一个布尔值，表示当前元素是否满足条件。
+        let target = ary.find(item => item.id = 2);
+        console.log(target);
+    </script>
+</body>
+
+</html>

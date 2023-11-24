@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+        }
+        Star.prototype.sing = function () {
+            console.log('我会唱歌!');
+        }
+        // Star.prototype.sex = '女';
+        // Object.prototype.sex = '女';
+        var dzq = new Star('邓紫棋', 22);
+        var zjl = new Star('周杰伦', 32);
+        // dzq.sex = '女';
+        console.log(dzq.sex);
+
+        /*
+        总结：当访问的一个对象的属性或方法时，首先会去查找本身是否有这个属性或方法（构造函数里面）。
+        如果没有就会查找它的原型对象(也就是__proto_指向的prototype）
+        如果还没有查找到就会去查找上一级原型对象(Object的原型对象)
+        以此类推直到找到Obect的上一级为止(null)
+        注意：如果对象本身有属性，而它的原型对象上也有属性，则采取就近原则的方式
+        */
+    </script>
+</body>
+
+</html>

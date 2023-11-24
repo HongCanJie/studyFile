@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>1234</div>
+    <ul>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+    </ul>
+    <script>
+        // 事件对象
+        var div = document.querySelector('div');
+        div.onclick = function(event) {
+            console.log(event);
+            // e.target返回的是触发事件的对象（元素）  this返回的是绑定事件的对象（元素）
+            console.log(event.target); //返回的是触发事件的对象div
+            console.log(this); //返回它所绑定的那个元素
+
+        }
+        div.addEventListener('click', function(event) {
+            console.log(event);
+        })
+        var ul = document.querySelector('ul');
+        ul.addEventListener('click', function(e) {
+                // 这里的this指向的是ul
+                console.log(this);
+                //e.target指向的是我们点击的那个对象    谁触发了这个事件   它就指向谁
+                console.log(e.target);
+                console.log(e.currentTarget); //返回的是ul
+            })
+            // 1.event就是我们的一个事件对象   写到侦听函数里的小括号里面 作为形参
+            // 2.事件对象之后当事件存在时候它才存在,是系统自动创建的，不需要我们传递参数
+            // 3.事件对象是我们事件一些列相关的数据的集合,它会获取键盘或鼠标的一些事件信息  如点击时候的坐标
+            // 4.命名可以使用event、evt、e
+            // 5.事件对象有兼容性问题  ie678要通过window.event      兼容性写法要写上e = e||window.event
+
+
+        //了解即可
+        // div. onclick = function(e) {
+        //e = e |1 window . event;
+        //var target = e.target|l e . srcElement;
+        //console . log(target);
+        // }
+        // 2.了解跟this有个非常相似的属性currentTarget ie678不认识
+    </script>
+</body>
+
+</html>

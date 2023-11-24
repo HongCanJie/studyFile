@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <!-- v-for循环 -->
+        <!-- 遍历数组 -->
+        <h2>人员列表</h2>
+        <input type="text" placeholder="请输入关键词" v-model="keyWord">
+        <ul>
+            <li v-for="(p,index) in filPersons" :key="index">
+                {{p.name}}-{{p.age}}-{{p.sex}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    /*
+       // 用watch实现
+       new Vue({
+        el: '#root',
+        data: {
+            keyWord: '',
+            persons: [
+                { id: '001', name: '马冬梅', age: '19', sex: '女' },
+                { id: '002', name: '周冬雨', age: '20', sex: '女' },
+                { id: '003', name: '周杰伦', age: '21', sex: '男' },
+                { id: '004', name: '温兆伦', age: '22', sex: '男' },
+            ],
+            // 定义一个空数组去接符合条件的字符串，防止原数据发生改变
+            filPersons: []
+        },
+        watch: {
+            keyWord: {
+                // 初始化时调用一下
+                immediate: true,
+                // val表示新的数据
+                handler(val) {
+                    this.filPersons = this.persons.filter(function (p) {
+                        // filter筛选符合条件的结果
+                        // indexOf匹配字符串是否符合，符合返回字符串所在的位置，不符合返回-1
+                        // p是filter遍历中的每一项
+                        return p.name.indexOf(val) !== -1;
+                    })
+                }
+            }
+        }
+    })*/
+
+    // 使用计算属性实现
+    new Vue({
+        el: '#root',
+        data: {
+            keyWord: '',
+            persons: [
+                { id: '001', name: '马冬梅', age: '19', sex: '女' },
+                { id: '002', name: '周冬雨', age: '20', sex: '女' },
+                { id: '003', name: '周杰伦', age: '21', sex: '男' },
+                { id: '004', name: '温兆伦', age: '22', sex: '男' },
+            ]
+        },
+        // 计算属性初始化和所依赖的数值发生变化的时候会自动调用
+        computed: {
+            filPersons() {
+                // 计算属性一定要有返回值
+                return this.persons.filter((p) => {
+                    // 返回筛选条件
+                    // indexOf的O一定要大写
+                    return p.name.indexOf(this.keyWord) !== -1;
+                })
+            }
+        }
+    })
+</script>
+
+</html>

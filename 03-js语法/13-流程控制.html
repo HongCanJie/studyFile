@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1.if语句结构：if(条件表达是){}else{}    真则执行大括号中的代码
+        var age = prompt('请输入你的年龄');
+        // 注意比较运算符都伴随着数据类型的转换
+        if (age >= 18) {
+            alert('允许进入网吧');
+        } else {
+            alert('未成年人禁止进入网吧');
+        }
+
+
+        // 案例：判断闰年：可以被4整除却不可以被100整除或者能被400整除的
+        var year = prompt('请输入年份：');
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+            alert(year + '是闰年');
+        } else {
+            alert(year + '是平年');
+        }
+
+
+
+        /* 2.        if(条件表达式){
+            代码------
+                    if(条件表达式){
+                        代码------
+                    }
+                } 
+                
+                
+                多分支if else if语句
+                if（条件表达式）{
+
+                }else if（条件表达式）{
+
+                }else if(条件表达式){
+
+                }
+
+
+                */
+
+
+        // 3.三元表达式        条件表达式?表达式1 ： 表达式2
+
+
+        // 4.switch语句
+        /* 
+        switch(表达式){
+            case value1:执行语句1;  break;
+            case value2：执行语句2;  break;
+            ....
+            default:
+                执行最后一句;
+        }
+
+
+        注意：如果case前面的值匹配成功后但是没有break;就会一直往下走知道遇到break：
+        和case匹配的时候必须是全等型即数据和数据类型都相等
+        */
+
+
+        //switch一般用于值固定的情况下，而if else if语句一般用于范围的判断；    分支多用switch，分支少用if；   switch语句的是直接跳到值的地方会比if语句的效率高一些
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

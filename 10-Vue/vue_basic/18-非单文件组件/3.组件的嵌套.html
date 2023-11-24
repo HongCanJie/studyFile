@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script>
+
+        // 创建student组件
+        const student = Vue.extend({
+            name: 'student',
+            template: `
+                <div>
+                    <h2>学生姓名:{{name}}</h2>    
+                    <h2>年龄:{{age}}</h2>    
+                </div>
+            `,
+            data() {
+                return {
+                    name: 'ken',
+                    age: 20
+                }
+            }
+        })
+
+
+        // 创建school组件
+        const school = Vue.extend({
+            name: 'school',
+            template: `
+                <div>
+                    <h2>学校名称:{{name}}</h2>    
+                    <h2>地址:{{address}}</h2>
+                    <student></student>    
+                </div>
+            `,
+            data() {
+                return {
+                    name: '广东白云学院',
+                    address: '广东广州'
+                }
+            },
+            // 在组件中局部注册组件
+            components: {
+                student
+            }
+        })
+
+
+        // 创建hello组件
+        const hello = Vue.extend({
+            template: `
+                <div>
+                    <h2>欢迎学习Vue!</h2>    
+                </div>
+            `,
+        })
+
+
+        // 创建app组件(该组件用来管理所有的组件)
+        const app = Vue.extend({
+            template: `
+                <div>
+                    <hello></hello>    
+                    <school></school>
+                </div>
+            `,
+            components: {
+                hello,
+                school
+            }
+        })
+
+        new Vue({
+            template: `<app></app>`,
+            el: '#root',
+            components: {
+                app
+            }
+        })
+    </script>
+</body>
+
+</html>

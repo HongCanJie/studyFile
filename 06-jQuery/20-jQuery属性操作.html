@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <a href="http://www.baidu.com" title="6666">链接</a>
+    <input type="checkbox" checked>
+    <div index="1" data-index="2">111</div>
+    <span></span>
+    <script>
+        $(function () {
+            // 1.Element.prop('属性名') 获取元素属性值
+            console.log($('a').prop('href'));
+            // 修改元素的属性值
+            $('a').prop('title', '单走一个6');
+            // 元素发生改变时触发打印
+            $('input').change(function () {
+                console.log($(this).prop('checked'));
+            })
+            // 注意:prop()不能获取自定义的属性
+            // console.log($('div').prop('index'));
+            // 2.元素的自定义属性通过attr()获取
+            $('div').attr('index', '66');
+            console.log($('div').attr('index'));
+            console.log($('div').attr('data-index'));
+            // 3.数据缓存 data() 这个里面的数据是存放在元素的内存中
+            $('span').data('uname', 'ken');
+            // 获取内存中变量的值
+            console.log($('span').data('uname'));
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="images/set的方法.png" alt="set的方法">
+    <script>
+        // set集合类似于数组，但是与数组不同的是，成员的值都是唯一的，没有重复的值。
+        // 应用场景：如电商的搜索界面，搜索的关键字会用set存储起来，第二次如果搜索相同关键字也不会再次插入到set集合中。
+
+        // 1.set是一个构造函数，用来生成Set数据结构
+        // const s1 = new Set();
+        // console.log(s1.size);//0
+
+        // 2.将数组存储到set中
+        // const s2 = new Set(['1', '2']);
+        // console.log(s2.size);//2
+
+        // 3.set会过滤重复值
+        // const s3 = new Set(['a', 'a', 'b', 'c']);
+        // console.log(s3);//{'a', 'b', 'c'}
+
+        // 4.set数据结构转化为数组的方法
+        // let ary = [...s3];
+        // console.log(ary);//['a', 'b', 'c']
+
+        // const s4 = new Set();
+        // 5.add方法 (增)
+        // s4.add('a').add('b');
+        // console.log(s4);
+
+        // 6.delete方法 (删)
+        // let flag1 = s4.delete('c');//返回一个布尔值,是否删除成功
+        // console.log(flag1);//false
+        // console.log(s4);
+
+        // 7.has (查) 判断是否集合中含有某个元素，返回一个布尔值
+        // const flag2 = s4.has('a');
+        // console.log(flag2);//true
+
+        // 8.clear （清空）清空集合中的内容
+        // s4.clear();
+        // console.log(s4.size);//0
+
+        // 9.遍历set 从中取值
+        const s5 = new Set(['a', 'b', 'c']);
+        let result = s5.forEach((item) => console.log(item));
+    </script>
+</body>
+
+</html>

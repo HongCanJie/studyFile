@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="images/defineProerty定义或修改对象属性.png" alt="defineProerty定义或修改对象属性">
+    <img src="images/defineProterty的descriptor说明.png" alt="defineProterty的descriptor说明">
+    <script>
+        var obj = {
+            id: 1,
+            pname: '小米',
+            price: 2222
+        };
+        // 1.常规新增对象属性的方法
+        // obj.num = 20000;
+        // 常规修改对象属性的方法
+        // obj.price = 5666;
+        // console.log(obj);
+
+        // 2.Object.defineProperty()定义对象的新属性或修改原有属性的值
+        // 新增 value
+        Object.defineProperty(obj, 'num', {
+            value: 9999,
+            enumerable: true
+        });
+        console.log(obj);
+
+        // 修改 value
+        Object.defineProperty(obj, 'price', {
+            value: 5666
+        })
+        console.log(obj);
+
+        // 限定属性值不允许修改 writable
+        Object.defineProperty(obj, 'id', {
+            // writable 值为 false则不允许修改，默认为false
+            writable: false
+        })
+        obj.id = 2;
+        console.log(obj);
+
+        // 限定key遍历可不可以遍历得出来 enumerable
+        Object.defineProperty(obj, 'address', {
+            value: '中国广东广州',
+            // writable 值为 false则不允许修改，默认为false
+            writable: false,
+            // enumerable 如果值为false 则不允许遍历，默认值是false
+            enumerable: false,
+            // configurable 是否可以删除对象的属性，默认值是false
+            configurable: false
+        })
+        console.log(obj);
+        console.log(Object.keys(obj));
+        delete obj.address;
+        delete obj.pname;
+        console.log(obj);
+
+        // Object.defineProperty(obj, 'address', {
+        //     value: '中国广东广州',
+        //     // 以下三个属性的值如果定义好了之后就不能再次修改，否则会报错
+        //     // writable 值为 false则不允许修改，默认为false
+        //     writable: true,
+        //     // enumerable 如果值为false 则不允许遍历，默认值是false
+        //     enumerable: true,
+        //     // configurable 是否可以删除对象的属性，默认值是false
+        //     configurable: true
+        // })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.利用new Object()创建对象
+        var obj1 = new Object();
+
+        // 2.利用对象字面量创建对象
+        var obj2 = {};
+
+        // 3.利用构造函数创建对象(ES6之前使用的)
+        // 注意：1.首字母大写  2.构造函数和new一起使用才会有意义
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+            this.sing = function () {
+                console.log('我会唱歌！');
+            }
+        }
+
+        var dzq = new Star('邓紫棋', 21);
+        var zjl = new Star('周杰伦', 34)
+        console.log(dzq);
+        console.log(zjl);
+    </script>
+</body>
+
+</html>

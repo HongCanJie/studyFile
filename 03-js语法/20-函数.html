@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 函数是可以重复调用的代码块,减少代码的冗余
+        // 1.声明函数
+        function getSum() {
+            var sum = 0;
+            for (var i = 0; i <= 100; i++) {
+                sum += i;
+            }
+            console.log(sum);
+        }
+        // 2.调用函数
+        getSum();
+        // 3.带参函数  形参不带声明var
+        function cook(str) {
+            console.log(str);
+        }
+        cook('正在炒菜');
+        // 4.带参相加函数       
+        function getSums(num1, num2) {
+            var sum = num1 + num2;
+            console.log(sum);
+        }
+        getSums(1, 4);
+        // 注意:js的函数和java的函数不同,形参的个数和实参的个数可以不匹配; 
+        // 当实参个数等于形参个数的时候,结果正常输出
+        // 当实参个数大于形参个数时,只会取到形参对应的个数进行运算
+        //当实参个数小于形参个数时,多余的形参会被定义为undefined,结果就会是NaN
+
+        // 5.return关键字  函数返回值 只有return了才能把结果返回给调用者
+        function getResult(num1, num2) {
+            return num1 + num2;
+        }
+        console.log(getResult(1, 3));
+        // 注意:函数一遇到return就会终止函数并返回值;   return只能返回一个值,并且只能返回多个值中的最后一个值!!!    如果有多个值要返回可以使用数组存放后再返回值return[数值1,数值2,数值3]
+        // 当函数没有return,那么返回值就会是undefined
+
+        // 6.arguments 的使用
+        // arguments是伪数组,具有length属性和按照索引的方式进行存储,但是没有真正数组的一些方法如pop(); push()
+        function fn() {
+            console.log(arguments[1]);
+            console.log(arguments); //里面存储了所有传递过来的实参        
+        }
+        fn(13, 342, 34);
+        // 7.js中和java一样一个函数可以调用另一个函数
+        function fn1() {
+            fn2();
+        }
+
+        function fn2() {
+            console.log(2);
+        }
+        fn1();
+        // 8.函数的另一种声明方式   匿名函数
+        // var 变量名 = function(){};     
+        var fun = function(str) {
+            console.log('我是一个函数');
+            console.log(str);
+        }
+        fun('ok');
+        // 注意:fun是变量名,变量里面存着值
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

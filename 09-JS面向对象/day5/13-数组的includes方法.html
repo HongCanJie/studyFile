@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let ary = ['a', 'b', 'c'];
+        let result = ary.includes('a');//true
+        console.log(result);
+        // includes用于查找数组中是否包含给定的值，返回布尔值
+        result = ary.includes('d');//false
+        console.log(result);
+        /*
+        includes和some的区别：
+        1.some方法可以提供更复杂的条件逻辑，例如检查数组中的元素是否满足某个条件，或仅检查数组中任何一个元素是否等于某个特定值。而include方法仅仅检查数组中是否包含某个特定的值。
+        2.some只能用于数组，includes还可以用于字符串，检查字符串中是否包含某一字符或字符串。
+        */
+    </script>
+</body>
+
+</html>

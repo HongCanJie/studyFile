@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            /* 图片与文字的底线对齐 */
+            /* vertical-align: bottom; */
+            /* 图片与文字的中线对齐 */
+            /* vertical-align: middle; */
+            /* 图片与文字的顶部对齐 */
+            /* vertical-align: top; */
+        }
+
+        /* 注意：1.除了可以实现文字和图片垂直居中外还可以实现文本域与文字等等标签的居中效果 
+                2.只有行内或行内块元素才有vertical-align这些对齐的方式。
+        */
+
+        /* 解决图片底部的默认空白缝隙问题
+        由于图片默认与基线对齐，因此会产生缝隙，只需要在对应的图片下面加入其他对齐属性就可以了
+        */
+
+        /* 方法一：添加对齐方式（推荐） */
+        .box1 {
+            border: 3px solid skyblue;
+        }
+
+        .box1 img {
+            /* 加入一个对齐属性 */
+            /* vertical-align: middle; */
+            vertical-align: bottom;
+        }
+
+        /* 方法二：将行内或行内块元素转换为块级元素 */
+        .box2 {
+            border: 3px solid skyblue;
+        }
+
+        .box2 img {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/tb.jpg">
+    <span>ken的车</span>
+    <img src="images/vertical-align属性.png" alt="vertical-align属性">
+    <img src="images/文字上的各种线.png" alt="文字上的各种线">
+
+    <div class="box1">
+        <img src="images/tb.jpg">ken的测试
+    </div>
+
+    <div class="box2">
+        <img src="images/tb.jpg">
+    </div>
+</body>
+
+</html>

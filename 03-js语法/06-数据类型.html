@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 注意：js的数据类型是只有在程序运行的时候才确定的和Java语言不同，如var定义变量可以定义整形也可以定义字符和数字,根据等号右边的那个值来确定的
+        var num = 0;
+        var num = 'hcj';
+
+        // js是动态语言，变量二代数据类型是可以变化的
+        // js的简单数据类型包括数字型number、字符串型string、布尔型Boolean
+
+
+
+        // 1.八进制 在数字前面加0表示八进制
+        var num1 = 010;
+        console.log(num1); //在控制台中010 八进制转十进制是    8
+        // 2.十六进制 0 ~ 9  在数字前面加上0x表示十六进制
+        var num2 = 0x9;
+        console.log(num2);
+        // 3.数字型的最大值
+        console.log(Number.MAX_VALUE);
+        // 4.数字型的最小值
+        console.log(Number.MIN_VALUE);
+        // 5.无穷大
+        console.log(Number.MAX_VALUE * 2); //Infinity
+        // 6.无穷小
+        console.log(-Number.MAX_VALUE * 2); //-Infinity
+        // 7.NAN表示非数字型，不知道结果
+        // isNaN()这个方法用来判断是否是非数字，如果是数字返回false，如果不是数字返回true
+        console.log(isNaN(12)); //false
+        console.log(isNaN('baidu')); //true
+
+
+
+
+        // 1.字符串嵌套（外双内单或者外单内双）js中的空格是\b而html中的空格是&nbsp;
+        var str = "我是一个'高富帅'的程序员";
+        var str1 = '我是一个"高富帅"的程序员';
+        console.log(str, str1);
+        // 2.在字符串中换行或者缩进等操作需要用转义符号，转义符开头是\
+        var str2 = '我是一个"高富帅"的\n程序员';
+        console.log(str2);
+
+
+        // 重要！！！！检测变量是哪一种数据类型     typeof加变量名
+        console.log(typeof str);
+        console.log(typeof num1);
+        // 注意：控制台中黑色的字体表示字符型数据，蓝色的字体表示数字型数据
+
+
+
+        // 数据类型的转换
+        /* 其他类型转化为字符串型 */
+        // 1.把数字型转换为字符串型     变量.tostring()
+        var n1 = 10;
+        var str = n1.toString();
+        console.log(str);
+        // 2.利用String(变量)
+        console.log(String(n1));
+        // 3.利用字符串拼接转换为字符型 变量+''空字符串  （隐式转换）       (重点！！！！)
+        console.log(n1 + '');
+        // 4.字符串拼接concat(str1,str2);
+        console.log(str.concat('redred'));
+        // 5. substr('截取的起始位置', '截取的几个字符')
+        str = '改革春风吹满地';
+        console.log(str.substr(2, 2)); //第一个2是索引号的起始位置，第二个2是取几个字符
+        // 6.替换字符replace('被替换的字符','替换的字符')       它只会替换第一个字符
+        var str3 = 'andyandy';
+        console.log(str3.replace('a', 'b'));
+        // 案例：一个字符串'abcoefoxyozzopp'替换所有的o为*
+        var str4 = 'abcoefoxyozzopp';
+        while (str4.indexOf('o') != -1) {
+            str4 = str4.replace('o', '*');
+        }
+        console.log(str4);
+        // 7.字符串转化为数组split('分隔符')   之前的数组转化为字符串使用join
+        var str5 = 'red,pink,blue';
+        console.log(str5.split(','));
+
+
+
+        /* 其他类型转换为数字型 */
+        // 1.字符型转化为数字型parseInt()
+        var age = '18';
+        console.log(parseInt(age));
+        console.log(parseInt('3.14')); //取整且不按四舍五入规则
+        console.log(parseInt('120px')); //120 会去掉px这个单位
+        console.log(parseInt('ren120px')); //NaN(非数字)
+        // 2.字符型转化为浮点型 parseFloat() 取得到小数
+        console.log(parseFloat('3.14'));
+        // parseInt和parseFloat的主要区别是一个取整一个取小数。
+        // 3.利用Number(变量)
+        var str = '123';
+        console.log(Number(str)); //123
+        // 4.重点！！！！利用算数运算-*/     隐式转换
+        console.log('12' - 0); //12
+        console.log('123' - '120'); //3
+
+
+        /* 把其他类型转化为boolean */
+        // 使用Boolean()转化        代表空、否定的值会被转化为flase，如''，0，NaN，null，undefined     其余的都会转化为true
+        console.log(Boolean(''));
+        console.log(Boolean(0));
+        console.log(Boolean(NaN));
+
+
+        // 注意：1.简单数据类型是在栈里面开辟一个空间存放值的   如变量的赋值语句 var str = a;
+        // 2、复杂数据类型如Object、Array、Data等是在栈里面存放地址，然后再堆里面存放值，通过栈的地址去找值    如数组的赋值语句
+        // 3.简单数据类型参与函数值传递，值不变。复杂数据类型参与函数值传递是传地址后，经过函数后值可能会发生变化
+    </script>
+</head>
+
+<body>
+    <img src="images/转义符.png" alt="转义符">
+    <img src="images/字符串的截取.png" alt="字符串的截取">
+</body>
+
+</html>

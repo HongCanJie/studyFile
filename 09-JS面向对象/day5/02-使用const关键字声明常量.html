@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const作用是声明常量，常量就是值（物理地址）不能变化的量。
+        // 使用const关键字声明的常量具有块级作用域
+        // if (true) {
+        //     const a = 10;
+        //     if (true) {
+        //         const a = 20;
+        //         console.log(a);//20
+        //     }
+        //     console.log(a);//10
+        // }
+        // console.log(a);//not defined
+
+
+        // 使用const关键字声明常量时必须赋初始值
+        // const PI = 3.14;
+
+        // 常量声明后值不可更改
+        // 简单数据类型中，如数字或字符无法更改，因为它在改变值的同时也改变了地址
+        const PI = 3.14;
+        // PI = 100;//Assignment to constant variable
+        // 复杂数据类型中，如数组或对象，只能更改数据结构内部的值，不能改变地址
+        const ary = [200, 300];
+        // ary[0] = 100;
+        // ary = [100, 200];//这个会改变数组的内存地址
+        console.log(ary);
+    </script>
+</body>
+
+</html>

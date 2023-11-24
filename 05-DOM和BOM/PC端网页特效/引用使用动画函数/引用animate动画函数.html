@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+
+        .sliderbar {
+            position: fixed;
+            right: 0;
+            bottom: 100px;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            /* 鼠标变小手 */
+            cursor: pointer;
+            /* background-color: skyblue; */
+        }
+
+        .con {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            background-color: purple;
+            z-index: -1;
+        }
+    </style>
+    <script src="animate.js"></script>
+</head>
+
+<body>
+    <div class="sliderbar">
+        <span>←</span>
+        <div class="con">问题反馈</div>
+    </div>
+    <script>
+        // 1.获取元素
+        var sliderbar = document.querySelector('.sliderbar');
+        var con = document.querySelector('.con');
+        var span = document.querySelector('span')
+        // 鼠标经过sliderbar就会让con盒子向左滑动
+        sliderbar.addEventListener('mouseenter', function () {
+            animate(con, -160, function () {
+                // 移动完之后修改箭头
+                span.innerHTML = '→';
+            });
+        })
+        // 鼠标离开sliderbar就会让con盒子向右滑动
+        sliderbar.addEventListener('mouseleave', function () {
+            // 因为是改变自己的left值，所以恢复是0
+            animate(con, 0, function () {
+                // 移动完之后修改箭头
+                span.innerHTML = '←';
+            });
+        })
+    </script>
+</body>
+
+</html>

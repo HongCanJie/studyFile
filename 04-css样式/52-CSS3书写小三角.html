@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: relative;
+            width: 249px;
+            height: 35px;
+            border: 2px solid black;
+        }
+
+        div::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 10px;
+            height: 10px;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            transform: rotate(45deg);
+            /* 谁变化给谁加 */
+            transition: all .3s;
+        }
+
+        /* 鼠标经过div后里面的三角旋转 */
+        div:hover::after {
+            /* 由于鼠标经过会覆盖原来的after里面的度数，因此需要45+180度 */
+            transform: rotate(225deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

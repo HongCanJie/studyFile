@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            padding: 10px;
+            /* 加入滚动条 */
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        111111111111111111111111111111
+        111111111111111111111111111111111111111
+        111111111111
+        111111111111111111111111111111
+        111111111111111111111111111111111111111
+        111111111111111111111111111111111111111111
+        111111111111111111111111111111111111111
+        111111111111
+        111111111111111111111111111111
+        111111111111111111111111111111111111111
+        111111111111
+    </div>
+    <img src="images/scroll系列.png">
+    <script>
+        var div = document.querySelector('div');
+        // scrollHeight 和 clientHeight的本质区别是 scrollHeight是盒子中内容的大小，clientHeight是盒子的大小
+        console.log(div.scrollHeight);
+        console.log(div.clientHeight);
+        // 顶部内容被卷去的距离
+        div.addEventListener('scroll', function () {
+            console.log(div.scrollTop);
+        })
+    </script>
+</body>
+
+</html>

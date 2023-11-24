@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* font-family：设置字体(宋体、微软雅黑) */
+        /* font-size:设置文字大小，要加px  */ 
+        /* font-weight:设置字体粗细 */
+        /* font-style:设置字体样式（斜体） */
+        /* font：font-style font-weight font-size/line-height font-family   (复合形式设置字体，但是要注意格式，除了font-size和font-family不能省，其他都能省) */
+        body{
+            font-size: 16px;
+        }
+        h2{
+            font-family: 'Microsoft YaHei';  
+            /* 注意：标题标签h2的font-size比较特殊，需要单独指定大小才可以 */
+            font-size: 16px;
+            /* normal = 400 */
+            font-weight: normal;
+        }
+        p{
+            /* 注意：名称之间有空格尽量用引号隔开，当出现多个字体时，系统会采用最前面的字体，如果没有就会依次往后面找. */
+            /* 一般字体的格式定义都是对body标签进行定义 */
+            font-family: 'Times New Roman',Times,serif;
+        }
+        .bold{
+            /* bold = 700 */
+            /* font-weight: bold; */
+            /* 注意：字体加粗不需要带单位 */
+            font-weight: 700;
+        }
+        .style{
+            font-style: italic;
+        }
+        em{
+            font-style: normal;
+        }
+        .fuhe{
+            font: italic 700 16px 'Microsoft yahei';
+        }
+    </style>
+</head>
+<body>
+    <h2>广东白云学院</h2>
+    <p>广东白云学院西校区</p>
+    <p>广东白云学院北校区</p>
+    <p class="bold">字体粗细</p>
+    <p class="style">字体样式</p>
+    <em>让倾斜的字体不倾斜</em>
+    <p class="fuhe">复合形式设置字体</p>
+</body>
+</html>

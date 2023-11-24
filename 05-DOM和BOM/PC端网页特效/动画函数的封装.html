@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* 注意：动画效果一定要加定位 */
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+
+        span {
+            /* 注意：动画效果一定要加定位 */
+            position: absolute;
+            left: 0;
+            top: 200px;
+            display: block;
+            width: 150px;
+            height: 150px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <button>点击span标签移动</button>
+    <div></div>
+    <span>span</span>
+    <script>
+        // 简单动画函数的封装  obj目标对象   target目标位置
+        function animate(obj, target) {
+            // 优化一：
+            // 先清除定时器在执行可以保证一次只有一个定时器在执行
+            clearInterval(obj.timer);
+            // 优化二：
+            // 注意：利用对象的方法保证了每个调用者调用timer的唯一性
+            obj.timer = setInterval(function () {
+                if (obj.offsetLeft >= target) {
+                    clearTimeout(obj.timer);
+                }
+                // 匀速动画
+                obj.style.left = obj.offsetLeft + 1 + 'px';
+            }, 30);
+        }
+        var div = document.querySelector('div');
+        var span = document.querySelector('span');
+        var button = document.querySelector('button');
+        // 调用函数(目标对象,目标位置)
+        animate(div, 300);
+        // 当我们不断点击按钮，这个元素的速度就会越来越快，因为开的定时器会越来越多
+        button.addEventListener('click', function () {
+            animate(span, 300);
+        })
+    </script>
+</body>
+
+</html>

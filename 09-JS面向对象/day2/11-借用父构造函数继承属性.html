@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="images/原型对象方法继承图.png" alt="原型对象方法继承图">
+    <script>
+        // 继承父构造函数的属性
+        // 1.父构造函数
+        function Father(uname, age) {
+            // this指向的是父构造函数里面的实例对象
+            this.uname = uname;
+            this.age = age;
+        }
+        Father.prototype.money = function () {
+            console.log(10000);
+        }
+        // 2.子构造函数
+        function Son(uname, age, score) {
+            // this指向的是子构造函数的实例对象,将父类的构造函数改写
+            Father.call(this, uname, age);
+            this.score = score;
+        }
+        // Son.prototype = Father.prototype; 这样直接赋值会有问题，如果修改了子原型对象，父原型对象也会被修改
+        Son.prototype = new Father();//创建一个父类实例对象，先把父类的原型对象中的方法继承过来
+        // 如果使用对象的形式修改了原型对象，要记得使用constructor指向原来的构造函数
+        Son.prototype.constructor = Son;
+        // 继承了之后再往子类里面添加新的方法，这样做可以使子类在添加新方法的时候不会影响父类的原型对象（相当于开辟了一个新的父类实例对象空间）
+        Son.prototype.exam = function () {
+            console.log('孩子要考试!');
+        }
+        var son = new Son('邓紫棋', 18, 100);
+
+        console.log(son);
+        console.log(Father.prototype);
+    </script>
+</body>
+
+</html>

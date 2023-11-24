@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1.移动盒子的位置: 定位  盒子的外边距  2D转换移动 */
+        /* div {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: skyblue; */
+        /* x是x轴上移动位置  y是y轴上移动位置  中间用逗号隔开 */
+        /* transform: translate(x,y);  注意带单位px */
+        /* transform: translate(100px, 100px); */
+        /* 1.只移动x坐标 */
+        /* transform: translate(100px, 0); */
+        /* transform: translateX(100px); */
+        /* 2.只移动x坐标 */
+        /* transform: translate(0, 100px); */
+        /* transform: translateY(100px); */
+        /* } */
+
+
+
+        /* 2.transform的优点：移动时不会影响其他盒子的位置 */
+        /* div:first-child {
+            transform: translate(30px, 30px);
+        } */
+
+        /* div:last-child {
+            background-color: purple;
+        } */
+
+
+
+        div {
+            /* 3/注意：transform中的50%不是移动页面的一半而是移动盒子宽度或高度的50% */
+            /* transform: translateX(50%); */
+        }
+
+
+        /* 4.可以实现动态的盒子居中问题，即使改变内部盒子的宽高也可以居中 */
+        p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            /* 之前的做法是减去盒子宽高的一半 */
+            /* margin-top: -50px;
+            margin-left: -50px; */
+
+            /* 新做法可以解决内部盒子宽高就算变化也不会影响盒子的居中问题 */
+            transform: translate(-50%, -50%);
+        }
+
+
+        /* 4.transform对行内元素无效 */
+        span {
+            transform: translate(300px, 300px);
+        }
+
+        img {
+            width: 150px;
+            /* 5.rotate是旋转函数,正数是顺时针旋转,负数是逆时针旋转 */
+            /* transform: rotate(45deg); */
+            border-radius: 50%;
+            border: 5px solid pink;
+            transition: all .3s;
+        }
+
+        img:hover {
+            transform: rotate(90deg);
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 200px auto;
+            background-color: skyblue;
+            transition: all .6s;
+            /* 6.可以设置旋转的中心点，可以跟方位名词 */
+            /* transform-origin: left bottom; */
+            /* 默认是50% 50% 等价于 center center  */
+            /* transform-origin: 20% 20%; */
+            /* 也可以是像素px */
+            transform-origin: 50px 50px;
+        }
+
+        div:hover {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div>
+        <p></p>
+    </div> -->
+    <!-- <span>1343</span> -->
+    <!-- <div></div> -->
+    <img src="images/pic.jpg">
+
+    <div></div>
+</body>
+
+</html>

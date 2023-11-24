@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 可以通过操作元素修改元素的属性值如src title href alt 等等 -->
+    <button id="shan">山</button>
+    <button id="shui">水</button>
+    <img src="images/shan.png" title='山'>
+    <script>
+        var shan = document.getElementById('shan');
+        var shui = document.getElementById('shui');
+        var img = document.querySelector('img');
+        shan.onclick = function() {
+            img.src = 'images/shan.png';
+            img.title = '山';
+        }
+        shui.onclick = function() {
+            img.src = 'images/shui.png';
+            img.title = '水';
+        }
+    </script>
+</body>
+
+</html>

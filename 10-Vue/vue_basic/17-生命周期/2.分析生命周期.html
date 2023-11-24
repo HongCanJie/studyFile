@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <img src="../images/生命周期.png" alt="生命周期理解图">
+
+    <div id="root">
+        <h2 v-text="n"></h2>
+        <h3>当前值是：{{n}}</h3>
+        <button @click="add">点我n+1</button>
+        <button @click="bye">点我销毁vm</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#root',
+
+            // template会直接替换id为root的div
+            // template: `
+            // <div>
+            //     <h3>当前值是：{{n}}</h3>
+            //     <button @click="add">点我n+1</button>
+            // </div>`,
+
+            data: {
+                n: 1
+            },
+            methods: {
+                add() {
+                    this.n++;
+                },
+                bye() {
+                    console.log('vm已销毁');
+                    this.$destroy();
+                }
+            },
+            watch: {
+                n() {
+                    console.log('n变了');
+                }
+            },
+            beforeCreate() {
+                console.log('beforeCreate');
+            },
+            created() {
+                console.log('created');
+            },
+            beforeMount() {
+                console.log('beforeMount');
+            },
+            mounted() {
+                console.log('mounted');
+            },
+            beforeUpdate() {
+                console.log('beforeUpdate');
+            },
+            updated() {
+                console.log('updated');
+            },
+            beforeDestroy() {
+                console.log('beforeDestroy');
+            },
+            destroyed() {
+                console.log('destroyed');
+                console.log(this);
+                debugger;
+            },
+        })
+    </script>
+</body>
+
+</html>

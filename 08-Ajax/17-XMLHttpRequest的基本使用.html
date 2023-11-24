@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="images/xhr对象的readyState的属性.png" alt="xhr对象的readyState的属性">
+    <script>
+        // 创建XML对象
+        var xhr = new XMLHttpRequest();
+        // 调用open函数 创建请求
+        xhr.open('get', 'http://www.liulongbin.top:3006/api/getbooks');
+        // 调用send函数  发送ajax请求
+        xhr.send();
+        // 监听事件 onreadystatechange
+        xhr.onreadystatechange = function () {
+            // readyState是请求的状态   status是服务器响应的状态
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // 获取服务器响应的数据
+                console.log(xhr.responseText);
+            }
+        }
+    </script>
+</body>
+
+</html>

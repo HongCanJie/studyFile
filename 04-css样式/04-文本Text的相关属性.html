@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* color:设置文字颜色        */
+        /* text-align:设置元素内文本内容的水平对齐方式    left(默认)    right   center */
+        /* text-decoration:给文本添加装饰，例如下划线、删除线、上划线等。   none（默认）    underline（下划线）     overline（上划线）      line-through（删除线）*/
+        /* text-indent:给文本第一行的缩进，通常是给段落的首行缩进。 */
+        /* text-height:设置行间距（行高），可以控制文字与文字之间的距离。行间距包括上行间距、下行间距和文字高度 */
+        .color {
+            /* color: skyblue; */
+            /* color:#ff0000; */
+            color: rgb(200, 200, 0);
+        }
+
+        h1 {
+            /* 本质是让h1盒子里面的文字水平居中对齐 */
+            text-align: center;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        .overline {
+            text-decoration: overline;
+        }
+
+        .line-through {
+            text-decoration: line-through;
+        }
+
+        a {
+            /* 取消a默认的下划线 */
+            text-decoration: none;
+        }
+
+        .suojin {
+            font-size: 20px;
+            /* 首行缩进20px */
+            /* text-indent: 20px; */
+            /* 如果此时写了2em，则当前元素缩进2个文字大小的距离。如果当前没有设置文字大小，则会按照父元素的1个文字大小 */
+            text-indent: 2em;
+        }
+
+        /* 注意：可以通过改变行高来使文字垂直居中。（通过使行高等于盒子高度来实现垂直居中） */
+        .line-height {
+            line-height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="color">这是一条有颜色的字体</div>
+    <h1>居中对齐的标题</h1>
+    <div class="underline">下划线</div>
+    <div class="overline">上划线</div>
+    <div class="line-through">删除线</div>
+    <a href="http://www.baidu.com">百度（下划线清除）</a>
+    <p class="suojin">
+        新华社北京7月26日电　国家主席习近平7月26日下午在北京钓鱼台国宾馆同印度尼西亚总统佐科举行会谈。两国元首在亲切友好的气氛中就中印尼关系以及双方共同关心的国际地区问题全面深入交换了意见，达成一系列重要共识。</p>
+    <div class="line-height">广东白云学院</div>
+</body>
+
+</html>

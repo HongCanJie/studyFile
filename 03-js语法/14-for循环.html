@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // for循环的结构
+        // for(初始变量;条件表达式;操作表达式){
+        //     //循环体
+        // }
+        // 初始化变量用var定义
+        // 条件表达式是循环终止的条件
+        // 操作表达式是更新循环的变量（++或--）
+        // for循环的规则和java中的循环规则一样
+        for (var i = 1; i <= 100; i++) {
+            console.log('hello');
+        }
+
+        // 注意：打断点是点在哪里程序就在哪里停，断点走下一步的快捷键是F11
+
+        // 使用for循环可以控制循环的次数
+        var num = prompt('请输入要循环的次数：');
+        for (var i = 1; i <= num; i++) {
+            console.log('hello');
+        }
+
+
+
+        var sum = 0;
+        // for循环1~100相加
+        for (var i = 1; i <= 100; i++) {
+            sum = sum + i;
+        }
+        console.log('1~100相加的值是：' + sum);
+
+
+        // for循环实现1~100所有偶数和奇数的和
+        var even = 0; //奇数
+        var odd = 0; //偶数
+        for (var i = 1; i <= 100; i++) {
+            if (i % 2 == 0) {
+                even = even + i;
+            } else {
+                odd = odd + i;
+            }
+        }
+
+        console.log('1~100所有偶数和：' + even);
+        console.log('1~100所有奇数和：' + odd);
+
+
+
+        var str = '';
+        // 一行打印五颗星星
+        for (var i = 1; i <= 5; i++) {
+            // 字符串追加
+            str = str + '⭐';
+        }
+        console.log(str);
+
+
+        var str1 = '';
+        // for循环嵌套(双重for循环)
+        // 打印rows行cols列星星
+        var rows = prompt('请输入您的行数：');
+        var cols = prompt('请输入您的列数：');
+        for (var i = 1; i <= rows; i++) {
+            for (var j = 1; j <= cols; j++) {
+                str1 = str1 + '⭐';
+            }
+            // 换行
+            str1 = str1 + '\n';
+        }
+        console.log(str1);
+
+
+
+        // 九乘九算法
+        var str2 = '';
+        for (var i = 1; i <= 9; i++) {
+            // 每一列都会小于等于它的行数
+            for (var j = 1; j <= i; j++) {
+                str2 = str2 + (i + '×' + j + '=' + i * j + '\t');
+            }
+            // 换行
+            str2 = str2 + '\n';
+        }
+        console.log(str2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

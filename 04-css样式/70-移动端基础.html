@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 视口标签 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,
+    minimum-scale=1.0,user-scalable=no">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            height: 500px;
+            border: 2px solid red;
+            background: url(images/dog.jpg) no-repeat;
+            /* 4.background-size: 图片的宽度  图片的高度; */
+            /* background-size: 500px 500px; */
+            /* 只写一个参数表示的是宽度  高度省略了  会等比例缩放 */
+            /* background-size: 500px; */
+            /* 里面使用%指的是相对于父盒子的宽高 */
+            /* background-size: 50%; */
+            /* cover 要完全覆盖div盒子  可能有部分背景图片显示不全 */
+            /* background-size: cover; */
+            /* contain 高度和宽度等比例拉伸 当高度或宽度 铺满div盒子就不会再进行拉伸了 可能会有部分空白区域; */
+            background-size: contain;
+
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/视口标签.png">
+    <img src="images/移动端常见布局.png" alt="移动端常见布局">
+    <!-- 1.物理像素 就是我们说的分辨率 iPhone8的物理像素是750 -->
+    <!-- 2.iPhone8里面的 1px 开发像素  =  2个物理像素 -->
+
+    <!-- 3.二倍图做法 -->
+    <!-- 问题所在：由于我们需要一张50*50的图片，但是直接放到iphone8里面会放大2倍 100*100，图片会变模糊 -->
+    <!-- 解决办法：放一张100*100的图片，然后手动把这张图片缩小成50*50，放到手机之后就会自动放大为100*100，图片不会模糊 -->
+    <div></div>
+</body>
+
+</html>

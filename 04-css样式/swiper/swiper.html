@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0,user-scalable=no,maximum-scale=1.0,minimum-scale=1.0">
+    <title>Document</title>
+    <!-- 引入swiper的css文件 -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/swiper.css">
+
+</head>
+
+<body>
+    <!-- Swiper -->
+    <div class="get_job_focus">
+        <!-- 引入复制想要的结构 -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="#"><img src="../images/pic.jpg"></a>
+                    <p>测试测试</p>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#"><img src="../images/pic.jpg"></a>
+                    <p>测试测试</p>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#"><img src="../images/pic.jpg"></a>
+                    <p>测试测试</p>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#"><img src="../images/pic.jpg"></a>
+                    <p>测试测试</p>
+                </div>
+                <div class="swiper-slide">Slide 5</div>
+                <div class="swiper-slide">Slide 6</div>
+                <div class="swiper-slide">Slide 7</div>
+                <div class="swiper-slide">Slide 8</div>
+                <div class="swiper-slide">Slide 9</div>
+            </div>
+            <!-- 箭头的结构 -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+    <!-- 引入swiper的js文件 -->
+    <script src="js/swiper.min.js"></script>
+    <!-- 引入复制想要的结构的js代码 -->
+    <script>
+        (function () {
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                // 添加左右箭头
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        })();
+
+    </script>
+</body>
+
+</html>

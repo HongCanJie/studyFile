@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+    <script>
+        $(function () {
+            // 对$符号进行封装
+            function $(ele) {
+                return document.querySelector(ele);
+            }
+            console.log($('div'));
+            //1.如果是$符号冲突了就是用jQuery
+            // 由于jQery与其他的js库同时存在$符号的封装函数，会导致冲突，解决多库共存的方法就是把$符号统一修改为jQuery
+            jQuery.each();
+            // 2.让jQuery释放对$符号的控制权，让用户自己定义
+            var aaa = jQuery.noConflict();
+            console.log(aaa('span'));
+            aaa.each();
+        })
+    </script>
+</body>
+
+</html>

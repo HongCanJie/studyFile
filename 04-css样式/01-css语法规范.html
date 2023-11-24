@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 选择器{样式} */
+        /* 1.标签选择器 */
+        /* 相同得到标签名会得到相同的样式 */
+        
+        p {
+            color: red;
+            font-size: 15px;
+        }
+        /* 2.类选择器 */
+        
+        .red {
+            color: green;
+        }
+        
+        .long-name {
+            color: blue;
+        }
+        /* 注意：
+        1.类选择器使用需要加“.”来标识，后面跟类名
+        2.长名称可以使用中横线来为类选择器命名
+        3.不要用中文命名
+        4.尽量用英文命名，实在没有命名想法可以用全拼音命名
+        */
+    </style>
+</head>
+
+<body>
+    <p>
+        这是第一个css样式
+    </p>
+    <p>
+        这是第二个css样式
+    </p>
+    <p>
+        这是第三个css样式
+    </p>
+
+
+    <ul>
+        <li class="red">类选择器</li>
+        <li class="red">类选择器</li>
+        <li>没有加class</li>
+        <li>没有加class</li>
+        <li class="long-name">长命名格式</li>
+    </ul>
+
+</body>
+
+</html>

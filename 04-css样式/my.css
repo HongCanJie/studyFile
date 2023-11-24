@@ -1,0 +1,21 @@
+body {
+  background-color: skyblue;
+}
+div:nth-child(1) {
+  width: 410px;
+  height: 100px;
+  background-color: #222222;
+  font-size: 20px;
+  border: 10px solid blue;
+}
+.header {
+  width: 200px;
+  height: 200px;
+  background-color: orange;
+}
+.header a {
+  color: purple;
+}
+.header a:hover {
+  color: green;
+}

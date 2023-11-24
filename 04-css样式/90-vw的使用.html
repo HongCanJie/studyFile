@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1 {
+            /* width: 100px; */
+            /* height: 100px; */
+            /* vw和vh的意思是宽度和高度与屏幕视口宽度和高度的占比 */
+            /* 1vw相当于屏幕的百分之一 */
+            /* 注意：iphone6/7/8的视口宽度是375px，因此1vw是3.75px */
+            width: 10vw;
+            height: 10vh;
+            background-color: skyblue;
+        }
+
+        .div2 {
+            /* 将50px*50px的盒子转化为vw */
+            /* vw = 50 / 3.75 */
+            /* 总结：vw是按照屏幕的视口宽度变化的，vh是按照屏幕视口的高度变化的，一般情况下都是使用vw */
+            width: 13.3333vw;
+            height: 13.3333vw;
+            background-color: red;
+            font-size: 5.3333vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1"></div>
+    <div class="div2">12345</div>
+</body>
+
+</html>

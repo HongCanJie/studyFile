@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            width: 600px;
+            height: 400px;
+            background-color: skyblue;
+        }
+
+        div span {
+            width: 150px;
+            height: 100px;
+            background-color: pink;
+            color: #fff;
+            margin: 10px;
+        }
+
+        div span:nth-child(3) {
+            /* 只控制一个元素的排列方式 */
+            align-self: flex-end;
+        }
+
+        div span:nth-child(2) {
+            /* 控制元素左右排布的位置，没有改变html结构，默认的第一号位是0，而-1比0小，所以排在前面 */
+            order: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ...args 当实参个数大于形参个数时，剩余参数允许我们将一个不定数量的参数表示为一个数组
+        // function sum(first, ...args) {
+        //     console.log(first);//10
+        //     console.log(args);//[20,30]
+        // }
+        // sum(10, 20, 30);
+
+
+        // 解构在函数中的使用
+        // const sum = (...args) => {
+        //     let total = 0;
+        //     args.forEach(item => total += item);
+        //     return total;
+        // }
+        // console.log(sum(10, 20));
+        // console.log(sum(10, 20, 30));;
+
+
+        // 解构与剩余参数的使用
+        let ary1 = ['张三', '李四', '王五'];
+        let [s1, ...s2] = ary1;
+        console.log(s1);
+        console.log(s2);
+    </script>
+</body>
+
+</html>

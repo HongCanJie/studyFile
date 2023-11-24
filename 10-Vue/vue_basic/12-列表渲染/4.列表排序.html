@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <!-- v-for循环 -->
+        <!-- 遍历数组 -->
+        <h2>人员列表</h2>
+        <input type="text" placeholder="请输入关键词" v-model="keyWord">
+        <button @click="sortType=2">年龄升序</button>
+        <button @click="sortType=1">年龄降序</button>
+        <button @click="sortType=0">原顺序</button>
+        <ul>
+            <li v-for="(p,index) in filPersons" :key="index">
+                {{p.name}}-{{p.age}}-{{p.sex}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    // 使用计算属性实现
+    new Vue({
+        el: '#root',
+        data: {
+            keyWord: '',
+            sortType: 0,//0是原顺序，1是降序，2是升序
+            persons: [
+                { id: '001', name: '马冬梅', age: '19', sex: '女' },
+                { id: '002', name: '周冬雨', age: '20', sex: '女' },
+                { id: '003', name: '周杰伦', age: '35', sex: '男' },
+                { id: '004', name: '温兆伦', age: '25', sex: '男' },
+            ]
+        },
+        // 计算属性初始化和所依赖的属性值发生变化的时候会自动调用(这里面依赖的属性是keyWord和sortType)
+        computed: {
+            filPersons() {
+                const arr = this.persons.filter((p) => {
+                    // 返回筛选条件
+                    // indexOf的O一定要大写
+                    return p.name.indexOf(this.keyWord) !== -1;
+                })
+                // 判断是否需要排序(除了0之外都要排序)
+                if (this.sortType) {
+                    // sort方法数组排序，sort(p1, p2), p1是前一个值，p2是后一个值
+                    // 当p1-p2时，数组是升序；当p2-p1时，数组是降序
+                    arr.sort((p1, p2) => {
+                        // 返回排序条件
+                        return this.sortType === 1 ? p2.age - p1.age : p1.age - p2.age;
+                    })
+                }
+                // 计算属性一定要有返回值
+                return arr
+            }
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 模板字符串是ES6新增的创建字符串的方式，可以根据某个定义的模板将变量的值插入到模板中
+        // let name = `张三`; //注：`张三` 和 '张三' 一样
+        // 定义模板
+        // let sayHello = `Hello,我的名字加${name}`;
+        // console.log(sayHello);
+
+
+
+        // let result = {
+        //     name: '张三',
+        //     age: 20
+        // }
+
+        // let html = `<div>
+        //     <span>${result.name}</span>
+        //     <span>${result.age}</span>
+        //     </div>`
+
+        // console.log(html);
+
+
+        const fn = () => '我是fn函数';
+        let html = `我是模板字符串，${fn()}`;
+        console.log(html);
+
+        /*
+        模板字符串的三个特点：
+        1.可以定义引用模板
+        2.可以换行
+        3.可以调用函数
+        */
+    </script>
+</body>
+
+</html>

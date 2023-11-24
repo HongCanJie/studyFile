@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn(x, y) {
+            console.log('调用了函数');
+            console.log(this);
+            console.log(x + y);
+        }
+        var a = {
+            name: 'ken'
+        };
+        // fn();
+        // 1.call()方法也可以调用函数
+        // fn.call();
+        // 2.call()可以改变这个函数的this指向,此时这个函数的this指向的是a这个对象
+        // 第一个参数是改变this的指向，第二第三个参数是传递实参
+        fn.call(a, 1, 2);
+    </script>
+</body>
+
+</html>

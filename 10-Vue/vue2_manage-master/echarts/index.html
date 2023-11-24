@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ECharts</title>
+    <!-- 引入刚刚下载的 ECharts 文件 -->
+    <!-- <script src="echarts.js"></script> -->
+	<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+  </head>
+  <body>
+    <!-- 为 ECharts 准备一个定义了宽高的 DOM 宽高必须设置 -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+
+	<div id="line" ref="lineRef" class="main-chart" style="width: 600px;height:400px;"></div>
+
+  </body>
+  <script type="text/javascript">
+	// 基于准备好的dom，初始化echarts实例
+	var myChart = echarts.init(document.getElementById('line'));
+
+	// 指定图表的配置项和数据
+	var option = {
+	  title: {
+		text: 'ECharts 入门示例'
+	  },
+	  tooltip: {},
+	  legend: {
+		data: ['销量']
+	  },
+	  xAxis: {
+		data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+	  },
+	  yAxis: {},
+	  series: [
+		{
+		  name: '销量',
+		  type: 'bar',
+		  data: [5, 20, 36, 10, 10, 20]
+		}
+	  ]
+	};
+	var option_line = {
+	  title: {
+		text: 'ECharts 折线图'
+	  },
+	  tooltip: { // 提示框
+		trigger: 'axis',
+		axisPointer: {
+			type: 'cross',
+			label: {
+				backgroundColor: '#6a7985'
+			}
+		}
+	  },
+	//   图例
+	//   legend: {
+	// 	data: ['oppo', 'vivo', '苹果', '小米', '三星', '魅族']
+	//   },
+	  toolbox: {
+		feature: {
+			saveAsImage: {}
+		}
+	  },
+	  grid: {
+		left:'3% ',
+		right: '4%',
+		bottom: '3%',
+		containLabel: true
+	  },
+	//   x轴
+	  xAxis: {
+		type:'category',
+		boundaryGap: false,
+		data: ['日销量', '月销量', '总销量']
+	  },
+	//   y轴
+	  yAxis: [
+		{
+			type:'value'
+		}
+		],
+	  series: [
+		{
+		  name: 'oppo',
+		  type: 'line', // 折线图
+		  stack:'Total',
+		  areaStyle:{},
+		  emphasis:{
+			focus: 'series'
+		  },
+		  data: [500, 3500, 22000]
+		},
+		{
+		  name: 'vivo',
+		  type: 'line',
+		  stack:'Total',
+		  areaStyle:{},
+		  emphasis:{
+			focus: 'series'
+		  },
+		  data: [300, 2200, 2400]
+		},
+		{
+		  name: '苹果',
+		  type: 'line',
+		  stack:'Total',
+		  areaStyle:{},
+		  emphasis:{
+			focus: 'series'
+		  },
+		  data: [800, 4500, 6500]
+		},
+		{
+		  name: '小米',
+		  type: 'line',
+		  stack:'Total',
+		  areaStyle:{},
+		  emphasis:{
+			focus: 'series'
+		  },
+		  data: [1200, 6500, 4500]
+		},
+		{
+		  name: '三星',
+		  type: 'line',
+		  stack:'Total',
+		  areaStyle:{},
+		  emphasis:{
+			focus: 'series'
+		  },
+		  data: [300, 2000, 4500]
+		},
+		{
+		  name: '魅族',
+		  type: 'line',
+		  stack:'Total',
+		  areaStyle:{},
+		  emphasis:{
+			focus: 'series'
+		  },
+		  data: [350, 3000, 2200]
+		},
+	  ]
+	};
+
+	// 使用刚指定的配置项和数据显示图表。
+	myChart.setOption(option_line);
+  </script>
+</html>

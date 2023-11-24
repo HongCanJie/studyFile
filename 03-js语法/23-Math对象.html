@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Math数学对象    不是一个构造函数，所以我们不需要new对象，直接使用里面的方法和属性即可
+        console.log(Math.PI); //圆周率
+        console.log(Math.max(1, 2, 5)); //最大值5
+        console.log(Math.max(1, 34, 'KEN')); //NaN
+        console.log(Math.max()); //-Infinity
+
+
+
+
+
+
+
+        // 利用对象封装自己的数学对象
+        var myMath = {
+            PI: 3.14159265,
+            max: function() {
+                var max = arguments[0];
+                // 由于不知道传过来的实参有多少个，因此使用arguments
+                // 最大值
+                for (var i = 0; i <= arguments.length; i++) {
+                    if (arguments[i] > max) {
+                        max = arguments[i];
+                    }
+                }
+                return max;
+            },
+
+            // 最小值
+            min: function() {
+                var min = arguments[0];
+                // 由于不知道传过来的实参有多少个，因此使用arguments
+                // 最大值
+                for (var i = 0; i <= arguments.length; i++) {
+                    if (arguments[i] < min) {
+                        min = arguments[i];
+                    }
+                }
+                return min;
+            }
+        }
+        console.log(myMath.PI);
+        console.log(myMath.max(2, 3, 4));
+        console.log(myMath.min(2, 45, 3));
+
+
+
+
+
+        // 绝对值方法
+        console.log(Math.abs(-1)); //1
+        console.log(Math.abs('-1')); //隐式转换  会把字符串-1转化为数字型
+
+
+        // 三个取整方法
+        // (1)Math.floor() 向下取整    往最小的取值
+        console.log(Math.floor(1.1)); //1
+        console.log(Math.floor(1.9)); //1
+        // (2)Math.ceil()  向上取整    往大值取
+        console.log(Math.ceil(1.3)); //2
+        console.log(Math.ceil(1.7)); //2
+        // (3)Math.round()     四舍五入 其他数字都是四舍五入，但是.5特殊，它会往大的取
+        console.log(Math.round(1.2)); //1
+        console.log(Math.round(1.8)); //2
+        console.log(Math.round(-1.2)); //-1
+        console.log(Math.round(-2.5)); //-2     注意这个-2.5是四舍五入往大的取
+
+
+
+
+
+        // Math.random()   返回随机的小数   0<=x <1
+        console.log(Math.random());
+
+        // 两个数之间的随机整数 [最小值，最大值]
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        console.log(getRandom(1, 10));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

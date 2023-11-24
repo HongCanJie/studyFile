@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 基本包装类型：就是把简单数据类型包装成了复杂数据类型     js中的三种基本包装类型：String、Number、Boolean
+        var str = 'andy';
+        console.log(str.length);
+        // 以上代码在底层代码写的是
+        // （1）把简单数据类型包装成复杂数据类型
+        var temp = new String('andy');
+        // (2)把临时变量值给Str
+        Str = temp;
+        // (3)销毁这个临时变量
+        temp = null;
+
+        // 注意：因为我们字符串不可变，重新赋值了之后原来的元素还是在占用内存空间，只是变量名指向的值不同了，因此不要重复给一个变量赋值或者字符串拼接
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

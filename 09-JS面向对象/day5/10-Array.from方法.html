@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. Array.from可以将伪数组转化为真正的数组
+        // var arrayLike = {
+        //     "0": "张三",
+        //     "1": "李四",
+        //     "2": "王五",
+        //     "length": 3
+        // }
+
+        // var ary = Array.from(arrayLike);
+        // console.log(ary);
+
+        // 2. Array.from 可以接收第二个参数，作用类似于数组方法中的map，用来对每个元素进行处理，将处理后的值放入返回的数组中。
+        let arrayLike = {
+            "0": "1",
+            "1": "2",
+            "length": "2"
+        }
+
+        var ary = Array.from(arrayLike, item => item * 2);
+        console.log(ary);
+    </script>
+</body>
+
+</html>

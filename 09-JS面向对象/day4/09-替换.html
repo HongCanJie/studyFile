@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea {
+            width: 300px;
+            height: 100px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/正则表达式参数.png" alt="正则表达式参数">
+    <br>
+    <textarea id="message"></textarea><button>替换</button>
+    <div></div>
+    <script>
+        // 替换 replace
+        // var str = 'andy和red';
+        // var newStr = str.replace('andy', 'baby');  // 待匹配的字符.replace('待替换的字符'，'替换的字符')
+        // var newStr = str.replace(/andy/, 'baby');
+        // console.log(newStr);
+
+        var msg = document.querySelector('#message');
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        btn.addEventListener('click', function () {
+            // g 是全局匹配，i是忽略大小写  gi既全局匹配，又忽略大小写        如果不加g只会匹配第一个敏感词
+            // | 是或者
+            var newMsg = msg.value.replace(/激情|gay/g, '**');
+            div.innerHTML = newMsg;
+        })
+    </script>
+</body>
+
+</html>

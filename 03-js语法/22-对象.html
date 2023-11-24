@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1/利用对象字面量创建对象{}
+        var obj = {}; //创建了空对象
+        var obj = {
+            uname: '张三丰',
+            age: '17',
+            sex: '男',
+            sayHi: function() {
+                console.log('hi~');
+            }
+        }
+
+        function fn() {
+            // 函数体
+        }
+        // （1）里面的属性使用键值对的方式，用冒号：隔开
+        // （2）多个属性之间用逗号隔开
+        // （3）方法冒号后面跟一个匿名函数
+        // 注意：（1）对象里的属性不需要var来声明
+        // （2）函数和方法的相同点是都是来实现某种功能的； 不同点是函数是写在外面的而方法是写在对象里面的，方法必须得用对象.方法名();
+        // 使用对象
+        // （1）调用对象用   对象名.属性名
+        console.log(obj.uname);
+        // （2）调用属性的另一种方法   对象名['属性名']
+        console.log(obj['uname']);
+        // (3)调用对象的方法   对象名.方法名();
+        obj.sayHi();
+
+
+
+        // 2.利用new Object()创建对象
+        var obj1 = new Object(); //创建空对象
+        obj1.uname = '张三丰';
+        obj1.age = '18';
+        obj1.sex = '男';
+        obj1.sayHi = function() {
+                console.log('hi~');
+            }
+            // (1)利用等号赋值的方法添加属性
+            // （2）每个属性之间用分号；结束
+        console.log(obj1.uname);
+        console.log(obj1['sex']);
+        obj1.sayHi();
+
+
+        // 3.利用构造函数创建对象(构造函数是泛指某一大类，对象是该类中的其中一个)   （可以创建多个对象）    构造函数就是把我们对象里面的一些相同的属性和方法抽象出来封装到函数里面
+        // function 构造函数名(){
+        //     this.属性 = 值;
+        //     this.方法 = function(){}
+        // }
+        // // 调用构造函数
+        // new 构造函数名();
+        function Star(uname, age, sex) {
+            this.uname = uname;
+            this.age = age;
+            this.sex = sex;
+            this.sing = function(sang) {
+                console.log(sang);
+            }
+        }
+        var star = new Star('邓紫棋', 21, '女'); //调用函数返回的是一个对象
+        console.log(typeof star);
+        console.log(star.uname);
+        console.log(star['sex']);
+        star.sing('光年之外');
+        console.log(star);
+        // （1）构造函数名首字母必须大写
+        // （2）构造函数不需要return就可以返回结果
+        //  (3)使用new 创建对象
+        // (4)添加对象的属性必须得用this.属性名
+
+
+        // 遍历对象
+        var obj2 = {
+                name: 'ken',
+                age: 18,
+                sex: "男",
+                fn: function() {
+                    console.log('学习学习');
+                }
+            }
+            // for in 遍历对象
+        for (var k in obj2) {
+            console.log(k); //输出的是属性名
+            console.log(obj2[k]); //obj[k]得到属性值
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        	常用的生命周期钩子：
+        			1.mounted: 发送ajax请求、启动定时器、绑定自定义事件、订阅消息等【初始化操作】。
+        			2.beforeDestroy: 清除定时器、解绑自定义事件、取消订阅消息等【收尾工作】。
+            关于销毁Vue实例：
+        			1.销毁后借助Vue开发者工具看不到任何信息。
+        			2.销毁后自定义事件会失效，但原生DOM事件依然有效。（理解：绑定的点击事件仍然可以触发，但是无法再操作data里面的数据了）
+        			3.一般不会在beforeDestroy操作数据，因为即便操作数据，也不会再触发更新流程了。
+    -->
+    <div id="root">
+        <h3 :style="{opacity}">欢迎学习Vue</h3>
+        <button @click="opacity=1">透明度设置为1</button>
+        <button @click="stop">点我停止变换</button>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                opacity: 1
+            },
+            methods: {
+                stop() {
+                    this.$destroy();
+                }
+            },
+            // Vue完成模板解析并把初始的真实dom元素放在页面后（挂载完毕）调用mounted
+            mounted() {
+                console.log('mounted', this);
+                this.timer = setInterval(() => {
+                    vm.opacity -= 0.01;
+                    // console.log(vm.opacity);
+                    if (vm.opacity <= 0) vm.opacity = 1;
+                    console.log(1);
+                }, 20)
+            },
+            beforeDestroy() {
+                // 销毁vm时如果不清除定时器，定时器还是会继续执行，但是opacity数据不会再发生变化
+                clearInterval(this.timer);
+            },
+        });
+    </script>
+</body>
+
+</html>

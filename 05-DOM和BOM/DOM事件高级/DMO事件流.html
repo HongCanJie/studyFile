@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        html,
+        body {
+            margin: auto auto;
+        }
+        
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: black;
+            position: relative;
+        }
+        
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position: absolute;
+            top: 10%;
+            left: 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/事件流.png" alt="事件流">
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        // 什么叫Dom事件流？
+        // 事件发生时会在元素节点之间按照特定的顺序传播，整个过程分为捕获阶段，目标阶段和冒泡阶段，这个传播过程叫做Dom事件流
+
+        // addEventListener的第三个参数默认是false，表示在该事件的处理函数只会在冒泡阶段被调用。
+        // 若改为true,则事件处理函数只能在捕获阶段被调用。
+
+        // onclick和attachEvent绑定的事件中事件处理函数只能在冒泡阶段被调用。
+
+        // 1.默认情况下，在冒泡阶段调用事件处理函数     false或不写是处于冒泡阶段
+        // var father = document.querySelector(".father")
+        // father.addEventListener('click', function() {
+        //     alert('father')
+        // })
+
+        // var son = document.querySelector('.son')
+        // son.addEventListener('click', function() {
+        //     alert('son')
+        // })
+
+        // 提示框弹出顺序：son->father
+
+        // 2. 改为在捕获阶段调用事件处理函数    true是处于捕获阶段
+        // var father = document.querySelector(".father")
+        // father.addEventListener('click', function() {
+        //     alert('father')
+        // }, true)
+
+        // var son = document.querySelector('.son')
+        // son.addEventListener('click', function() {
+        //     alert('son')
+        // }, true)
+
+        // document.addEventListener('click', function() {
+        //     alert('document')
+        // }, true)
+
+        //弹出顺序：document->father->son
+
+
+        // 阻止事件冒泡
+        var son = document.querySelector('.son');
+        son.addEventListener('click', function(e) {
+            alert('son');
+            e.stopPropagation(); //标准     stop停止 progation传播（ie9以上）
+            e.cancelBubble = true; //非标准    cancle取消 bubble冒泡（ie678）
+        }, false);
+
+        var father = document.querySelector('.father');
+        father.addEventListener('click', function() {
+            alert('father');
+        }, false);
+
+        document.addEventListener('click', function() {
+            alert('document');
+        })
+    </script>
+</body>
+
+</html>

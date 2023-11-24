@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var str1 = '广东白云学院';
+        // 编码
+        var str2 = encodeURI(str1);
+        console.log(str2);//每三组%是一个中文
+        console.log('-------------------');
+        // 解码
+        var str3 = '%E5%B9%BF%E4%B8%9C';//前两个字符
+        console.log(decodeURI(str3));
+    </script>
+</body>
+
+</html>

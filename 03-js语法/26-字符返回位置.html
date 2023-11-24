@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 字符串对象  根据字符返回位置    str.indexOf('要查找的字符串',[起始位置])
+        var str = '改革春风吹满地，春天来了';
+        console.log(str.indexOf('春')); //查找第一个字符
+        console.log(str.indexOf('春', 3)); //从索引号是3的位置开始往后查找
+
+        // 查找o出现的位置以及次数
+        var str1 = 'abcoefoxyozzopp';
+
+        function getIndex() {
+            var index = str1.indexOf('o');
+            var n = 0;
+            while (index != -1) {
+                console.log(index);
+                index = str1.indexOf('o', index + 1);
+                n++;
+            }
+            return n;
+        }
+        console.log('o的总个数' + getIndex());
+
+
+
+        // 案例:计算一组字符串中出现最多次的字符和出现的次数   通过对象来计算
+        var str2 = 'abcoefoxyozzopp';
+        var o = {};
+        for (var i = 0; i < str2.length; i++) {
+            var chars = str2.charAt(i);
+            // 判断有没有chars这个对象
+            if (o[chars]) {
+                o[chars]++;
+            } else {
+                // 一开始没有存值,全都记为1
+                o[chars] = 1;
+            }
+        }
+        // console.log(o);
+        // 找到最多的
+        function getMax(o) {
+            var max = 0;
+            var ch = '';
+            // 用foreach循环遍历对象
+            for (var k in o) {
+                if (o[k] > max) {
+                    max = o[k];
+                    ch = k;
+                }
+            }
+            return [max, ch];
+        }
+        console.log('出现最多的字符和出现的次数分别是:' + getMax(o));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

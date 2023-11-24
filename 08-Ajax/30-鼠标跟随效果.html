@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <SCript src="lib/jquery.js"></SCript>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #angel {
+            /* 绝对定位 */
+            position: absolute;
+            /* 图片居中 */
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/angel.gif" alt="angel" id="angel">
+    <script>
+        $(function () {
+            // 1.获取图片
+            var angel = $('#angel');
+            // (1)定义节流阀
+            var timer = null;
+            // 2.绑定mousemove事件
+            $(document).on('mousemove', function (e) {
+                // (3)判断节流阀是否为空，如果不为空，则证明距离上次执行时间间隔不足16毫秒(节流阀的核心)
+                if (timer) { return; }
+                // (2)设置定时器
+                timer = setTimeout(function () {
+                    $(angel).css('top', e.pageY + 'px').css('left', e.pageX + 'px');
+                    // console.log('横坐标:' + e.pageX + '纵坐标:' + e.pageY);
+                    timer = null;
+                }, 16)
+            })
+        })
+    </script>
+    <!-- 防抖:如果事件被频繁触发，防抖能保证只有最有一次触发生效!前面N多次的触发都会被忽略! -->
+    <!-- 节流:如果事件被频繁触发，节流能够减少事件触发的频率，因此，节流是有选择性地执行一部分事件! -->
+
+</body>
+
+</html>

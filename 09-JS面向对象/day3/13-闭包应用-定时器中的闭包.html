@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 3秒后打印所有li元素的内容 -->
+    <ul class="nav">
+        <li>清华大学</li>
+        <li>北京大学</li>
+        <li>武汉大学</li>
+        <li>复旦大学</li>
+    </ul>
+    <script>
+        var lis = document.querySelector('.nav').querySelectorAll('li');
+        for (var i = 0; i < lis.length; i++) {
+            // 必须加立即执行函数，因为for循环是同步的，setTimeout是异步的，当for循环到了第四个之后定时器任务才进行，因此会报错，需要将任务存到队列中，延长变量的时间
+            (function (a) {
+                // 这里已经产生了一个闭包，定时器里的任务可以访问立即执行函数里面的变量
+                setTimeout(function () {
+                    console.log(lis[a].innerHTML);
+                }, 3000)
+            })(i)
+
+        }
+    </script>
+</body>
+
+</html>

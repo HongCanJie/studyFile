@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入bootstrap的css文件 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <style>
+        .row>div {
+            height: 50px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">左侧</div>
+            <!-- col-md-offset-6就是右盒子向右偏移6份，他的原理相当于给右侧盒子加了一个左的margin值 -->
+            <!-- 左右排列：偏移的份数 = 12 - 两个盒子所占的份数 -->
+            <div class="col-md-3 col-md-offset-6">右侧</div>
+        </div>
+        <div class="row">
+            <!-- 中间排列： 偏移的份数 = （12 - 盒子的份数）/ 2 -->
+            <div class="col-md-8 col-md-offset-2">中间盒子</div>
+        </div>
+    </div>
+</body>
+
+</html>

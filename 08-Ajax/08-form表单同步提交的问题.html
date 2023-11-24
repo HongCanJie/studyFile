@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/jquery.js "></script>
+</head>
+
+<body>
+    <form action="/action" id="f1">
+        <input type="text" name="user_name">
+        <input type="password" name="password">
+        <button type="submit">提交</button>
+
+        <!-- 缺点：
+            1.用户打开页面会跳转。
+            2.页面之前的状态和数据会丢失。-->
+
+        <!-- 解决办法：页面用于采集数据，ajax用于提交数据 -->
+        <script>
+            $(function () {
+                // 监听表单的提交
+                // 第一种方式
+                // $('#f1').on('submit', function () {
+                //     alert(1);
+                // 阻止表单默认的提交行为
+                // e.preventDefault();
+                // var data = $(this).serialize();
+                // console.log(data);
+                // })
+
+                // 第二种方式
+                $('#f1').submit(function (e) {
+                    alert(1);
+                    // 阻止表单默认的提交行为(也可以防止事件的冒泡)
+                    e.preventDefault();
+                    // serialize快速获取表单中每个元素的值,获取前一定要给input指定name
+                    var data = $(this).serialize();
+                    console.log(data);
+                })
+
+
+
+
+            })
+        </script>
+    </form>
+</body>
+
+</html>

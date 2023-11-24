@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 复合选择器之后代选择器（重要且常用） */
+        ol li {
+            color: skyblue;
+        }
+
+        ol li a {
+            color: red;
+        }
+
+        .nav1 li a {
+            color: red;
+        }
+
+
+        /* 复合选择器之子选择器（重要）:用>标识，只选择自己的亲儿子，不选择孙子 */
+        .nav2>a {
+            color: red;
+        }
+
+
+        /* 复合选择器之并集选择器（重要）:两个元素之间用逗号分割 */
+        /* 预定的语法规范是我们并集选择器喜欢竖着写，注意最后一个选择器不需要加逗号 */
+        div,
+        p,
+        .pig li {
+            color: pink;
+        }
+
+
+        /* 复合选择器之伪类选择器:用冒号表示，用于向某些选择器添加特殊的效果，比如给链接加特殊效果 */
+        /* 注意：这四个选择器的顺序不能颠倒 */
+        /* 未被访问的链接a:link     把没有点击访问过的链接选出来 */
+        .lianjie:link {
+            color: #333;
+            text-decoration: none;
+        }
+
+        /* a:visited选择被点击过的链接  */
+        .lianjie:visited {
+            color: orange;
+        }
+
+        /* a:hover选择鼠标经过的那个链接 */
+        .lianjie:hover {
+            color: skyblue;
+        }
+
+        /* a:active选择的是我们鼠标正在按下还没有弹起鼠标的那个链接 */
+        .lianjie:active {
+            color: pink;
+        }
+
+        /* 复合选择器之focus伪类选择器:焦点就是光标，一般情况下input表单元素哪个获得光标，哪个的样式就发生改变 */
+        input:focus {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 后代选择器 -->
+    <ol>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+        <li><a href="#">我是孙子</a></li>
+    </ol>
+    <ul>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+    </ul>
+    <ul class="nav1">
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li><a href="#">我是孙子</a></li>
+    </ul>
+
+    <!-- 子选择器 -->
+    <div class="nav2">
+        <a href="#">我是儿子</a>
+        <p>
+            <a href="#">我是孙子</a>
+        </p>
+    </div>
+
+    <!-- 并集选择器 -->
+    <div>熊大</div>
+    <p>熊二</p>
+    <span>光头强</span>
+    <ul class="pig">
+        <li>小猪佩奇</li>
+        <li>猪爸爸</li>
+        <li>猪妈妈</li>
+    </ul>
+
+    <!-- 伪类选择器 -->
+    <a href="http://www.taobao.com" class="lianjie">未被访问的链接</a>
+    <br>
+
+    <!-- focus伪类选择器 -->
+    <input type="text">
+    <input type="text">
+    <input type="text">
+
+    <img src="images/选择器总结.png" alt="选择器总结">
+</body>
+
+</html>

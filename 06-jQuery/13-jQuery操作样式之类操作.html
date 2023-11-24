@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            transition: all .5s;
+        }
+
+        .current {
+            background-color: red;
+            transform: rotate(360deg);
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        $(function () {
+            // 1.添加类 addClass()
+            // $('div').click(function () {
+            //     // 添加类不需要加点.
+            //      //相当于追加类名，不影响以前的类名
+            //     $(this).addClass('current');
+            // })
+            // 2.删除类 removeClass()
+            // $('div').click(function () {
+            //     // 添加类不需要加点.
+            //      //只是对指定的类名进行删除
+            //     $(this).removeClass('current');
+            // })
+            // 3.切换类 toggleClass()
+            $('div').click(function () {
+                // 添加类不需要加点.
+                $(this).toggleClass('current');
+            })
+        })
+
+        // 与className的区别是className会覆盖掉原来的类名
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            id: 1,
+            name: 'ken',
+            msg: {
+                age: 18
+            }
+        }
+        var o = {};
+        // 浅拷贝方法一：for in循环
+        // for (var k in obj) {
+        //     // k是属性名
+        //     o[k] = obj[k];
+        // }
+        // console.log(o);
+        // o.msg.age = 20;
+        // console.log(obj);
+
+        // 浅拷贝方法二：Object.assign（常用）
+        Object.assign(o, obj);
+        console.log(o);
+        o.msg.age = 20;
+        console.log(obj);
+
+        // 浅拷贝的特点：遇到更深层次的对象属性只是拷贝了对象的地址（值会拷贝过来），当拷贝后的对象改变更深层次（第二层或第二层以上）的数据时候，原数据也会发生改变
+    </script>
+</body>
+
+</html>

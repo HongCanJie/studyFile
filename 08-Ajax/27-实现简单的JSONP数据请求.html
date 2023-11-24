@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function success(data) {
+            console.log('JSONP请求回来的数据是：');
+            console.log(data);
+        }
+    </script>
+
+    <script src="https://ajax-base-api-t.itheima.net/api/jsonp?callback=success&name=ken&age=22"></script>
+
+    <!-- jsonp的缺点是不能发送post请求 -->
+    <!-- 不能把jsonp请求数据叫做ajax，因为没有用到XMLHttpRequest这个对象 -->
+</body>
+
+</html>

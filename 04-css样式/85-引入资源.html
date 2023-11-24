@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 当屏幕大于等于640px的时候，一行显示两个div */
+        /* 当屏幕小于640px 并大于等于320px的时候一行显示一个div */
+        /* 建议：媒体查询最好的方法就是从小到大 */
+        /* 引入资源就是针对不同的屏幕尺寸调用不同的css文件 */
+    </style>
+    <link rel="stylesheet" href="style320.css" media="screen and (min-width:320px)">
+    <link rel="stylesheet" href="style640.css" media="screen and (min-width:640px)">
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+</body>
+
+</html>

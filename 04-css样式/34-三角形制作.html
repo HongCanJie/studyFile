@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 三角形制作 */
+        .box1 {
+            /* 1.不能对盒子赋值宽高 */
+            width: 0;
+            height: 0;
+            /* 2.加边框 */
+            /* border: 40px solid pink; */
+            border-top: 40px solid pink;
+            border-right: 40px solid red;
+            border-left: 40px solid green;
+            border-bottom: 40px solid blue;
+        }
+
+        .box2 {
+            width: 0;
+            height: 0;
+            /* 1.把所有的边框设为透明的 */
+            border: 30px solid transparent;
+            /* 2.设置对应的三角形 */
+            border-left-color: skyblue;
+            margin: 100px auto;
+        }
+
+        .jd {
+            position: relative;
+            width: 249px;
+            height: 120px;
+            background-color: skyblue;
+            margin: 200px auto;
+        }
+
+        .jd span {
+            position: absolute;
+            right: -20px;
+            top: 50px;
+            width: 0;
+            height: 0;
+            /* 照顾兼容性 */
+            line-height: 0;
+            font-size: 0;
+            border: 10px solid transparent;
+            border-left-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="jd">
+        <span></span>
+    </div>
+</body>
+
+</html>

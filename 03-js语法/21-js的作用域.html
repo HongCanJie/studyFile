@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 作用域指的是变量在某个范围内起作用的效果,目前学的是es5
+        // 1.js的作用域(es6):全局作用域 局部作用域
+        // 2.全局作用域:整个script标签中或者单独个js文件
+        // 3.局部作用域:指的是在函数内部或局部代码中产生作用
+        // 注意:在函数内部没有使用var声明但赋值的变量也属于全局变量!!!
+        // 在全局声明变量赋值后在局部也可以相同名字的变量后赋值,两者不会相互影响
+
+
+        // 作用域链:内部函数访问外部函数的变量时,采用的是链式查找的方式来决定取哪个值(就近原则)
+        var num = 10;
+
+        function fn1() { //外部函数
+            var num = 20;
+
+            function fn2() { //内部函数
+                console.log(num);
+            }
+            fn2();
+        }
+        fn1(); //20
+
+
+
+        /* 预解析 */
+        //1.我们js引擎运行js分为两步:预解析   代码执行
+        // (1).预解析js引擎会把js文件中的所有var和function提升到当前作用域的最前面,变量提升值提升变量不赋值
+        // (2).代码执行 从上往下
+        function f1() {
+            var a = b = c = 9; // var a = 9; b = 9; c = 9;  因此b和c前面没有var，在函数中定义之后变成全局变量
+            var a = 9,
+                b = 9,
+                c = 9; // var a= 9; var b = 9; var c = 9;
+        }
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 表单域form包括表单元素、提示信息，用于收集信息 -->
+    <!-- 表单域属性action是信息传送的网页地址，method是传送的方式，name是表单的名字 -->
+    <!-- 输入标签input（单标签）的属性   type中text是文本框  textarea是文本域  name属性给标签起名 maxlength输入最大长度-->
+    <img src="images/input1.png" title="input的type属性">
+    <img src="images/input2.png" title="input的属性">
+    <form action="demo.php" method="post" name="name1">
+        <!-- 文本框 -->
+        <label for="name">用户名：</label>
+        <input type="text" id="name" name="username" value="请输入用户名" maxlength="6"><br>
+        <!-- 密码框 -->
+        密码：<input type="password" name="pwd"><br>
+        <!-- 注意：单选框和复选框都要有相同的name值 -->
+        <!-- 单选框和复选框设置checked属性，当前页面打开的时候就会默认选中这个按钮 -->
+        <!-- radio单选按钮，只能实现多选一，    重点！！！！！！性别选项必须要有相同的name才能实现多选一 -->
+        性别：男<input type="radio" name="sex" value="男" checked="checked"> 女<input type="radio" name="sex" value="女"><br>
+        <!-- 复选框checkbox是多选按钮，可以实现多选 -->
+        爱好：吃饭<input type="checkbox" name="hobby" value="吃饭" checked="checked"> 睡觉<input type="checkbox" name="hobby" value="睡觉"> 打豆豆<input type="checkbox" name="hobby" value="打豆豆"><br>
+        <!-- 提交按钮用于信息提交，将信息送给服务器 -->
+        <input type="submit" value="免费注册">&nbsp;
+        <!-- 重置按钮可以还原表单元素初始默认状态 -->
+        <input type="reset" value="重新填写"><br>
+        <!-- 普通按钮用于做某些交互事件，通常和js事件绑定 -->
+        <input type="button" value="验证短信"><br>
+        <!-- 上传文件按钮 -->
+        <input type="file">
+        <br>
+        <br>
+        <!-- 附加属性 -->
+        <!-- label标签用于给单选框和复选框或者输入框等等绑定文字，这样点击文字就可以选择选项，增加了用户体验 -->
+        <!-- 其中label中的for属性相当于id，给文字绑定选项，然后再input标签的id也要写上相应的名字 -->
+        <label for="class1">1班</label>
+        <input type="radio" id="class1" checked="checked" name="class">
+        <label for="class2">2班</label>
+        <input type="radio" id="class2" name="class">
+    </form>
+
+</body>
+
+</html>

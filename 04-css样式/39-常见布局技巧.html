@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            margin-left: 10px;
+        }
+
+        /* 1.解决边框边界由于重合而加粗的问题 */
+        /* 原理：先浮动使得盒子紧贴后加上一个向左的移动 */
+        ul li {
+            position: relative;
+            float: left;
+            /* 通过将盒子往左移动使得右边的盒子盖住左边的盒子，使得线变细 */
+            margin-left: -1px;
+            list-style: none;
+            width: 150px;
+            height: 100px;
+            border: 1px solid red;
+        }
+
+        /* 鼠标经过后边框变色 */
+        /* 2.解决重合的右边框被盖住的问题 */
+        /* 原理：鼠标经过时提高盒子的层级即可（如果盒子没有定位，则加相对定位（保留位置），如果有定位，则加z-index） */
+        ul li:hover {
+            /* position: relative; */
+            z-index: 1;
+            border: 1px solid blue;
+        }
+
+        /* 3.解决文字在图片右侧排列问题 */
+        .box {
+            position: absolute;
+            width: 320px;
+            height: 70px;
+            margin: 150px 50%;
+            padding: 5px;
+            background-color: skyblue;
+        }
+
+        .box .pic {
+            /* 给左边盒子加浮动,右边盒子的文字就会环绕 */
+            float: left;
+            width: 120px;
+            height: 60px;
+            margin-right: 5px;
+        }
+
+        .box .pic img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <div class="box">
+        <div class="pic"><img src="images/tb.jpg"></div>
+        <p>本田的发动机在自吸领域确实非常出色，具有高功率、省油、坚固耐用的皮革。</p>
+    </div>
+</body>
+
+</html>

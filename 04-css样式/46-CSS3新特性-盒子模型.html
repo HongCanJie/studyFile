@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 20px solid red;
+            padding: 15px;
+            /* 加padding或者border值盒子会往外撑大 */
+            box-sizing: content-box;
+        }
+
+        p {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 20px solid red;
+            padding: 15px;
+            /* css3的属性都会有兼容性问题 */
+            /* css3 盒子模型  盒子最终的大小就是 width 的大小 */
+            /* 盒子的大小是固定的,盒子会往内缩小 */
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <p></p>
+</body>
+
+</html>

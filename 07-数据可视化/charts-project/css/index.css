@@ -1,0 +1,129 @@
+/*清除元素默认的内外边距  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*让所有斜体 不倾斜*/
+em,
+i {
+  font-style: normal;
+}
+
+/*去掉列表前面的小点*/
+li {
+  list-style: none;
+}
+
+/*图片没有边框   去掉图片底侧的空白缝隙*/
+img {
+  border: 0;
+  /*ie6*/
+  vertical-align: middle;
+}
+
+/*让button 按钮 变成小手*/
+button {
+  cursor: pointer;
+}
+
+/*取消链接的下划线*/
+a {
+  color: #666;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #e33333;
+}
+
+h4 {
+  font-weight: 400;
+}
+
+body {
+  background: url(../images/bg.jpg) no-repeat 0 0/ cover;
+  /* background-size: cover; */
+}
+
+
+
+/* // 实现rem适配 */
+/* @media screen and (max-width: 1024px) {
+  html {
+    font-size: 42.66px !important;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  html {
+    font-size: 80px !important;
+  }
+} */
+
+/* 注：contain和cover的区别是cover会覆盖整个容器且超出部分会剪切掉。contain会覆盖整个容器且通过缩放导致不会有超出部分 */
+.viewport {
+  display: flex;
+  min-width: 1024px;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 1.1rem .25rem 0;
+  background: url(../images/logo.png) no-repeat 0 0/contain;
+  min-height: 780px;
+}
+
+.viewport .column {
+  flex: 3;
+  /* background-color: white; */
+}
+
+.viewport .column:nth-child(2) {
+  flex: 4;
+}
+
+/* 公共面板样式 */
+.panel {
+  position: relative;
+  border: 15px solid transparent;
+  border-width: .6375rem .475rem .25rem 1.65rem;
+  /* 边框宽度顺序是上右下左，注意有边框的宽度之后就不需要边框图片的宽度了 */
+  border-image-source: url(../images/border.png);
+  border-image-slice: 51 38 20 132;
+  margin-bottom: .25rem;
+}
+
+.inner {
+  position: absolute;
+  /* 绝对定位在top和left为0时无法盖住边框，因此需要给个负值来拉大子容器从而盖住边框 */
+  top: -0.6375rem;
+  left: -1.65rem;
+  right: -0.475rem;
+  bottom: -0.25rem;
+  /* background-color: red; */
+  padding: .3rem .45rem;
+}
+
+
+/* 概览区域模块 */
+.overview {
+  height: 1.375rem;
+}
+
+.overview ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.overview ul li h4 {
+  font-size: .35rem;
+  color: #fff;
+  margin: 0 0 .1rem .06rem;
+}
+
+
+.overview ul li span {
+  font-size: .2rem;
+  color: #4c9bfd;
+}

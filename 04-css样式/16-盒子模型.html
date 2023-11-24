@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 200px;
+            /* border(边框会影响盒子的实际大小，会撑大盒子) */
+            /* 1.border-width 边框的粗细 一般情况下用px */
+            /* border-width: 5px; */
+            /* 2.border-style 边框的样式  solid实线边框  dashed虚线边框  dotted点线边框 */
+            /* border-style: solid; */
+            /* border-style: dashed; */
+            /* border-style: dotted; */
+            /* 3.边框颜色 */
+            /* border-color: skyblue; */
+            /* 4.边框的复合简写 */
+            /* border: 1px solid skyblue; */
+            /* 5.上边框 */
+            /* border-top: 1px solid skyblue; */
+            /* 6.下边框 */
+            /* border-bottom: 1px solid skyblue; */
+
+            /* padding （padding会影响盒子的实际大小，会撑大盒子。如果没有给盒子指定宽度或高度则不会撑大盒子的宽或高！） */
+            /* 1.盒子的左侧内边距 */
+            /* padding-left: 20px; */
+            /* 2.盒子的上内边距 */
+            /* padding-top: 20px; */
+            /* 3.内边距简写(规律就是按顺时针排布) */
+            /* 一个值，代表上下左右都是5px */
+            /* padding: 5px; */
+            /* 两个值，代表上下是5px 左右是10px */
+            /* padding: 5px 10px; */
+            /* 三个值，代表的是上边距是5px 左右是10px 下边距是20px */
+            /* padding: 5px 10px 20px; */
+            /* 四个值，代表着上边距是5px 右边距是10px 下边距是20px 左边距是30px */
+            /* padding: 5px 10px 20px 30px; */
+        }
+
+        .div1 {
+            /* margin外边距，控制盒子与盒子之间的距离 */
+            /* margin-bottom: 20px; */
+            /* 边距的原理与padding的原理相同,排列方式同样是按照顺时针排布 */
+            /* 设置块级盒子水平居中的两个条件:1.盒子必须要有宽度.  2.给盒子的左右外边距设置为auto(自动居中) */
+            margin: 0 auto;
+
+        }
+
+        .div1,
+        .div2 {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+
+        .header {
+            width: 900px;
+            height: 200px;
+            background-color: skyblue;
+            margin: 100px auto;
+            /* 设置行内或行内块盒子元素水平居中对齐需要给他的父元素添加text-align: center; */
+            text-align: center;
+        }
+
+        .damao,
+        .ermao {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        }
+
+        /* 相邻块元素合并问题 */
+        /* 上外边距会合并下2外边距导致总外边距只有0px，因此当存在上下外边距合并时只能对一个外边距加入这这两个外边距的总和 */
+        .damao {
+            margin-bottom: 10px;
+        }
+
+        .ermao {
+            margin-top: 20px;
+        }
+
+        /* 嵌套中父元素的塌陷问题(父元素与子元素贴得太紧了) */
+        /* 解决方法：
+        1.可以为父元素定义上边框。
+        2.可以为父元素定义上内边框。
+        3.可以为父元素添加overflow:hidden
+        */
+        .father {
+            width: 400px;
+            height: 400px;
+            background-color: purple;
+            margin-top: 50px;
+            /* 1.可以为父元素定义上边框。 */
+            /* border: 1px solid transparent; */
+            /* 2.可以为父元素定义上内边框。 */
+            /* padding: 1px; * /
+            /* 3.可以为父元素添加overflow:hidden */
+            overflow: hidden;
+        }
+
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            margin-top: 100px;
+        }
+
+        /* 清除内外边距 */
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        /* 圆角边框(核心原理是按照半径的长度对盒子的内边框进行内切，形成的形状即为圆角) */
+        .radius {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            /* 1.border-radius: 10px; */
+            /* 2.border-radius: 左上 右上 左下 右下;（顺时针） */
+            border-radius: 10px 20px 30px 40px;
+            /* 3.border-radius: 左上和右下   右上和左下; */
+            /* border-radius: 20px 40px; */
+            /* 4.border-radius: 左上 右上和左下 右下; */
+            /* border-radius: 10px 20px 40px; */
+            /* 5.border-top-left-radius(左上) */
+            /* border-top-left-radius: 10px; */
+            /* 6.复合写法（左上） */
+            /* border-radius: 10px 0 0 0; */
+        }
+
+        .yuan {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            /* 将宽度设置为盒子长或宽的一半即可变成圆 */
+            /* border-radius: 50px; */
+            /* 50%就是宽度和高度的一半 等价于50px */
+            /* 椭圆可以通过改变盒子的长度或宽度来画出 */
+            border-radius: 50%;
+        }
+
+        .juxing {
+            width: 300px;
+            height: 100px;
+            background-color: pink;
+            /* 圆角矩形设置为高度的一半 */
+            border-radius: 50px;
+        }
+
+
+        /* 阴影效果(不占有空间) */
+        .shadow {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            margin: 40px auto;
+            /* box-shadow: 水平阴影(必须) 垂直阴影（必须） 模糊距离 阴影尺寸 阴影颜色 内外阴影（默认outset不写，写了会报错；内阴影是inset）;；  */
+            /* box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, .3); */
+        }
+
+        /* 鼠标经过添加阴影效果 */
+        .shadow:hover {
+            box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, .3);
+        }
+
+        /* 文字阴影效果 */
+        .textShadow {
+            font-size: 50px;
+            font-weight: 700;
+            color: aqua;
+            margin: 20px auto;
+            /* text-shadow: 水平阴影  垂直阴影  模糊距离  阴影颜色; */
+            text-shadow: 10px 10px 6px rgba(0, 0, 0, .3);
+        }
+    </style>
+</head>
+
+<body>
+    <div>盒子的内容content</div>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="header">
+        <span>里面的文字</span>
+    </div>
+    <div class="header">
+        <img src="images/bg1.png" alt="">
+    </div>
+    <div class="damao">大毛</div>
+    <div class="ermao">二毛</div>
+
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+    <div class="radius"></div>
+    <div class="yuan"></div>
+    <div class="juxing"></div>
+    <div class="shadow"></div>
+    <div class="textShadow">文字阴影效果</div>
+</body>
+
+</html>

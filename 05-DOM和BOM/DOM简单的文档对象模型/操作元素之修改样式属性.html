@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        /* 点击后被调用的类名 */
+        
+        .change {
+            background-color: purple;
+            color: #fff;
+            font-size: 25px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>测试文字</div>
+    <script>
+        var div = document.querySelector('div');
+        // 修改样式属性
+        div.onclick = function() {
+            /* 1.用于修改的功能较少的情况(直接加入) */
+            // div.style里面的属性采取驼峰命名法(记得值要加''引号)
+            // this.style.backgroundColor = 'purple';
+            // js修改style样式操作,产生的是行内样式,比写在css中的权重高
+            // this.style.width = '250px';
+
+            /* 2.点击后把样式的类加载进标签(适合样式需要修改较多的样例) */
+            // 把当前标签的类名改成了change,因此调用了.change样式       格式是this.className = 类名;
+            // 这个调用会覆盖原来的类名,如果想要保留原先的类名格式应该是 this.className = '原先的类名   修改后的类名';
+            this.className = 'change';
+            // this.className = 'first change';
+        }
+    </script>
+</body>
+
+</html>

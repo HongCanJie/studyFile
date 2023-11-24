@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 合并单元格：
+    跨行合并单元格：rowspan="合并单元格的个数"
+    跨列合并单元格：colspan="合并单元格的个数"
+    跨行合并单元格：代码写在最上侧单元格上
+    跨列合并单元格：代码写在最左侧单元格上 -->
+
+    <!-- 步骤：
+    ①确定跨行还是跨列
+    ②合并单元格
+    ③删除多余的单元格 -->
+
+    <table border="1" width="500" height="249" cellspacing="0" rules="all">
+        <tr>
+            <td></td>
+            <!-- 跨列合并 -->
+            <td colspan="2"></td>
+            <!-- 删除多余的单元格 -->
+            <!-- <td></td> -->
+        </tr>
+        <tr>
+            <!-- 跨行合并  -->
+            <td rowspan="2"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <!-- 删除多余单元格  -->
+            <!-- <td></td> -->
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+
+</html>

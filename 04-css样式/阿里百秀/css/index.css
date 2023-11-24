@@ -1,0 +1,223 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+.container {
+    background-color: #fff;
+}
+
+/* 修改container的最大宽度 1280 根据设计稿来 */
+@media screen and (min-width:1280px) {
+    .container {
+        width: 1280px;
+    }
+}
+
+/* header */
+header {
+    /* 由于每一列都会存在一个左右的padding值，因此需要消除左padding值才能顶到最左边 */
+    /* 用inportant是由于header权重不够高，需要加权重 */
+    padding-left: 0 !important;
+}
+
+.logo {
+    background-color: #429ad9;
+}
+
+.logo img {
+    display: block;
+    /* 与父元素自适应保证图片可以正常显示 */
+    /* width: 100%; */
+    /* logo图片不需要缩放，最大宽度就是原图大小 */
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* 1.logo图片进入超小屏幕下的时候logo就隐藏起来 */
+/* 2.我们事先准备好一个盒子在logo里面，它平时是隐藏起来的，只有在超小屏幕下才显示 */
+.logo span {
+    display: block;
+    height: 50px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.nav {
+    background-color: #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.nav a {
+    /* 转化为块级元素才能设置高度 */
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 30px;
+    font-size: 16px;
+}
+
+.nav a:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+.nav a::before {
+    /* 和文字的中线对齐 */
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
+.news li {
+    float: left;
+    width: 25%;
+    height: 128px;
+    /* 由于图片右边需要留有空隙，加margin会被顶下去，因此需要加paddig值 */
+    padding-right: 10px;
+    /* 下边距 */
+    margin-bottom: 10px;
+
+}
+
+/* 当我们进入小屏幕或超小屏幕的时候 nav里面的li浮动起来并且宽度为20% */
+@media screen and (max-width:991px) {
+    .nav li {
+        float: left;
+        width: 20%;
+    }
+
+    article {
+        margin-top: 10px;
+    }
+}
+
+/* 当我们进入超小屏幕的时候  字体变小*/
+@media screen and (max-width:767px) {
+    .nav li a {
+        font-size: 14px;
+        padding-left: 3px;
+    }
+
+    .news ul li:nth-child(1) {
+        width: 100%;
+
+    }
+
+
+    .news ul li {
+        width: 50%;
+    }
+
+    .publish h3 {
+        font-size: 14px;
+    }
+}
+
+/* 子代选择器（给亲儿子加） */
+.news li>a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* background-color: pink; */
+}
+
+/* 当处于超小屏幕的时候 第一个li的宽度为100% 剩下的li各占50% */
+.news li:nth-child(1) {
+    width: 50%;
+    height: 266px;
+    /* background-color: skyblue; */
+}
+
+.carousel-inner,
+.carousel-inner img {
+    height: 266px !important;
+    width: 100%;
+}
+
+.news li:nth-child(1) a p {
+    line-height: 41px;
+    font-size: 20px;
+    padding: 0px 10px;
+}
+
+.news li a img {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-caption {
+    line-height: 41px;
+    /* text-align: center; */
+    font-size: 16px !important;
+    padding: 0 !important;
+}
+
+.news li a p,
+.carousel-caption {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 41px;
+    background-color: rgba(0, 0, 0, .5);
+    font-size: 12px;
+    color: #fff;
+    /* 清除p的下外边距 */
+    margin-bottom: 0;
+    padding: 5px 10px;
+}
+
+
+.publish {
+    border-top: 1px solid #ccc;
+}
+
+.publish .row {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.pic {
+    margin-top: 10px;
+}
+
+.pic img {
+    width: 100%;
+}
+
+.banner img {
+    width: 100%;
+}
+
+.hot {
+    display: block;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 0 20px 20px 20px;
+}
+
+.hot span {
+    border-radius: 0;
+    margin-bottom: 20px;
+}
+
+.hot p {
+    font-size: 12px;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        height: 3000px;
+    }
+    
+    img {
+        /* 绝对定位 */
+        position: absolute;
+        top: 2px;
+    }
+</style>
+
+<body>
+    我是一段不愿意分享的文字
+    <img src="images/angel.gif">
+    <script>
+        // 1.阻止右键菜单显示
+        document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+            })
+            // 2.禁止选中文字
+        document.addEventListener('selectstart', function(e) {
+                e.preventDefault();
+            })
+            // 3.鼠标事件对象MouseEvent
+        document.addEventListener('click', function(e) {
+            // client返回的是鼠标距离在可视区的x和y的坐标（与页面高度无关）
+            console.log(e.clientX);
+            console.log(e.clientY);
+            // page返回的是鼠标距离在页面文档的x和y的坐标（与页面高度有关）(有兼容性问题IE9+支持)
+            console.log(e.pageX);
+            console.log(e.pageY);
+            // screen返回的是鼠标距离在电脑屏幕的x和y的坐标
+            console.log(e.screenX);
+            console.log(e.screenY);
+        })
+
+
+        // mousemove鼠标移动案例：
+        var pic = document.querySelector('img');
+        document.addEventListener('mousemove', function(e) {
+            // mousemove只要鼠标移动1px就会触发事件
+            // 每次移动就获取x和y的坐标值
+            var x = e.pageX;
+            var y = e.pageY;
+            // 修改属性(注意要加单位才能修改图片的位置)(依据图片的大小给鼠标的位置定位)
+            pic.style.left = x - 50 + 'px';
+            pic.style.top = y - 30 + 'px';
+        })
+    </script>
+</body>
+
+</html>

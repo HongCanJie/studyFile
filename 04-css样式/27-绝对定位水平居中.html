@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 绝对定位和固定定位因为是脱标的，所以只能用这种方法让盒子水平居中 */
+        /* 无论页面如何调整大小盒子始终是居中状态 */
+        .box {
+            position: absolute;
+            /* 1移动到屏幕的一半距离 */
+            left: 50%;
+            top: 50%;
+            /* 2.减去移动的盒子的一半大小 */
+            margin-left: -100px;
+            margin-top: -100px;
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

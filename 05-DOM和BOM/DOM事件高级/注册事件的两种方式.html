@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <button>传统注册事件</button>
+    <button>方法监听注册事件</button>
+    <button>IE9以前版本支持</button>
+
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        var btn = document.querySelectorAll('button');
+        // 1.传统方式注册事件   多个事件同时注册一个按钮该按钮的事件会被覆盖，因此无法同一个按钮注册多个事件
+        btn[0].onclick = function() {
+            alert('hi');
+        }
+
+        btn[0].onclick = function() {
+            alert('hello');
+        }
+
+        // 2.事件监听注册事件 addEventListener('类型',function(){事件}) 
+        // （1）里面的事件类型是字符串   必定加引号  而且不带on     
+        // （2）同一个元素     同一个事件可以添加多个侦听器
+        // （3）有兼容性问题，仅IE9以上支持
+        btn[1].addEventListener('click', function() {
+            alert('hello');
+        })
+
+        btn[1].addEventListener('click', function() {
+            alert('hello world');
+        })
+
+        // 3.attachEvent  IE9以前版本支持   (实际开发中非常不建议使用会报错)
+        // btn[2].attchEvent('onclick', function() {
+        //     alert('33');
+        // })
+
+        // 4.删除事件
+        var divs = document.querySelectorAll('div');
+        divs[0].onclick = function() {
+            alert(11);
+            // （1）传统方式解绑事件
+            divs[0].onclick = null;
+        }
+        divs[1].addEventListener('click', fn); //里面的fn不需要加小括号调用
+
+        function fn() {
+            alert(22);
+            divs[1].removeEventListener('click', fn);
+        }
+
+        // attachEvent的移出事件是detachEvent('类型'，函数名);该方法不常用了解即可
+    </script>
+</body>
+
+</html>

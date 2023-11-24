@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <p>abc</p>
+    <div class="inner"></div>
+    <div class="create"></div>
+    <script>
+        // 三种创建元素方式的区别
+        // 1.Document.write()创建元素       (注意：该方法如果在文档执行完毕之后，会对页面全部重绘，原先的标签按钮可能会消失)
+        var btn = document.querySelector('button');
+        btn.onclick = function() {
+            document.write('<div>234</div>');
+        }
+
+        // 2.innerHtml创建元素      （innerHtml在创建多个元素的时候效率会更高，但是不要采用字符串拼接的方式，采用数组拼接的形式，结构会稍微复杂）
+        var inner = document.querySelector('.inner');
+        inner.innerHTML = '<a href="#">百度</a>';
+
+        // 3. document.createElement()创建元素      （createElement创建多个元素的效率会稍微低一些，但结构清晰）
+        var create = document.querySelector('.create');
+        var a = document.createElement('a');
+        create.appendChild(a);
+    </script>
+</body>
+
+</html>

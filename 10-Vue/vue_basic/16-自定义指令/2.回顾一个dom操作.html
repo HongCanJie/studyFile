@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .demo {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">点我创建一个输入框</button>
+    <script>
+        const btn = document.querySelector('#btn');
+
+        btn.onclick = () => {
+            const input = document.createElement('input');
+
+            // 通过添加类名来添加样式、修改值、绑定点击事件，这些都是可以在元素还未插入之前就可以先声明好的
+            input.className = 'demo';
+            input.value = 99;
+            input.onclick = () => {
+                alert(1);
+            }
+
+            document.body.appendChild(input);
+
+            // 给元素添加焦点或者给其父元素添加样式都是需要元素结构先生成了之后才能执行的
+            input.focus();
+            input.parentElement.style.backgroundColor = 'skyblue';
+        }
+    </script>
+</body>
+
+</html>

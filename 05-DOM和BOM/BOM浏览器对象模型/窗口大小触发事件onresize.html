@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // window.onresize是调整窗口大小加载事件，当触发时就会调用这个处理函数
+        window.addEventListener('load', function() {
+            var div = document.querySelector('div');
+            window.addEventListener('resize', function() {
+                console.log(window.innerWidth);
+                // console.log('变化了');
+                // 屏幕宽度小于800px，则div盒子隐藏
+                if (window.innerWidth <= 800) {
+                    div.style.display = 'none';
+                } else {
+                    div.style.display = 'block';
+                }
+            })
+        })
+    </script>
+    <div></div>
+</body>
+
+</html>

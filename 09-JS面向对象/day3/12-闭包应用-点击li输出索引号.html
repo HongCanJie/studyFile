@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 点击li输出对应的索引号 -->
+    <ul class="nav">
+        <li>清华大学</li>
+        <li>北京大学</li>
+        <li>武汉大学</li>
+        <li>复旦大学</li>
+    </ul>
+    <script>
+        // 1.利用动态添加属性的方式
+        var lis = document.querySelector('.nav').querySelectorAll('li');
+        // 循环绑定点击事件
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].index = i;
+            lis[i].onclick = function () {
+                console.log(this.index);
+            }
+        }
+
+        // 2.利用闭包的方式
+        for (var i = 0; i < lis.length; i++) {
+            // 利用for循环创建了四个立即执行函数（相当于四个空间）
+            // 立即执行函数就成了一个小闭包，因为立即执行函数里面的所有函数都可以使用这个变量i，只有这个点击事件完成了，这个i变量才会销毁
+            (function (i) {
+                lis[i].onclick = function () {
+                    console.log(i);
+                }
+            })(i)
+        }
+    </script>
+</body>
+
+</html>

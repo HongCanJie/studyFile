@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        姓：<input type="text" v-model="firstName"><br><br>
+        名：<input type="text" v-model="lastName"><br><br>
+        测试：<input type="text" v-model="x"><br><br>
+        全名:<span>{{fullName}}</span>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                firstName: '张',
+                lastName: '三',
+                x: '你好'
+            },
+            computed: {
+                // fullName: {
+                //     完整写法
+                //     get() {
+                //         console.log('get被调用');
+                //         return this.firstName + '-' + this.lastName;
+                //     },
+                //     set(value) {
+
+                //         const arr = value.split('-');
+                //         this.firstName = arr[0];
+                //         this.lastName = arr[1];
+                //     }
+                // }
+
+                // 简写
+                // 当计算属性只读不改的时候,才能使用简写,相当于以下代码只是get的语句
+                fullName() {
+                    console.log('get被调用');
+                    return this.firstName + '-' + this.lastName;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

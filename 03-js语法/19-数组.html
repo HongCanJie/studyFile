@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1.利用new创建数组
+        var arr = new Array(); //创建空数组
+        // var arr = new Array(2); 表示创建了一个长度为2的空数组
+        // var arr = new Array(2,3); 等价于[2,3]  表示里面有两个数组元素2和3
+        // 2.利用数组字面量创建数组[]
+        var arr = []; // 创建空数组(常用)
+        // 3.数组创建带初始值
+        var arr1 = [1, 2, 'hello', true];
+        // 4.获取数组元素
+        console.log(arr1); //所有元素
+        console.log(arr1[2]); //通过索引访问指定元素index，超出索引会报undefined
+        // 5.遍历数组
+        for (var i = 0; i < arr1.length; i++) {
+            console.log(arr1[i]);
+        }
+        // 6.数组转化为分割字符串
+        var arr2 = [1, 'dfg', 'gf', 'ewr', 'vd', 'good'];
+        var str = '';
+        var sep = '#'
+        for (var i = 0; i < arr2.length; i++) {
+            str += arr2[i] + sep;
+        }
+        console.log(str);
+        // 7.新增数组长度通过length
+        var arr3 = [1, 'dfg', 'gf', 'ewr', 'vd', 'good'];
+        arr3.length = 7; //修改长度
+        console.log(arr3);
+        // 8.追加元素来增加数组长度
+        var arr4 = [1, 'dfg', 'gf', 'ewr', 'vd', 'good'];
+        arr4[6] = 'hello'; //追加
+        console.log(arr4);
+        arr4[0] = 'world'; //替换
+        console.log(arr4);
+        // 9.数组存值可以使用for进行循环存放
+        //10.筛选数组的元素可以先遍历数组后使用if语句进行数组元素的判断，再存放在新的数组中
+        // 11.数组翻转reverse()
+        console.log(arr4.reverse());
+        // 12.冒泡排序(每趟都从第一个元素开始,比较一次交换直到不大于下一个元素后又从第一个元素开始,即大的沉下去小的浮上来)
+        var arr5 = [13, 34, 23, 65, 23, 4];
+        // 外层循环管趟数
+        for (var i = 0; i <= arr5.length - 1; i++) {
+            // 交换的次数(由于每次都会排掉一个元素,所以i的个数也会增加)
+            for (var j = 0; j <= arr5.length - i - 1; j++) {
+                if (arr5[j] > arr5[j + 1]) {
+                    var temp = arr5[j];
+                    arr5[j] = arr5[j + 1];
+                    arr5[j + 1] = temp;
+                }
+            }
+        }
+        console.log(arr5);
+        // 13.instanceof     运算符    用来检测是否为数组
+        console.log(arr5 instanceof Array); //true
+        // 14.Array.isArray(参数)   用来检测是否是数组      H5新增的方法    ie9以上版本支持
+        console.log(Array.isArray(arr5)); //true
+
+
+        // 15.添加数组元素
+        // (1) push(元素) 在数组末尾添加一个或多个数组元素
+        var arr6 = [2, 3, 4];
+        arr6.push(5, 'ken');
+        console.log(arr6.push(5, 'ken'));
+        console.log(arr6);
+        // 注意：push()有返回值，返回新数组的长度； push()里面直接写数组元素就行
+
+        // （2）unshift(元素) 在数组开头添加一个或多个数组元素
+        var arr7 = [2, 3, 4];
+        arr6.unshift(5, 'ken');
+        console.log(arr6.unshift(5, 'ken'));
+        console.log(arr6);
+        // 注意：unshift()有返回值，返回新数组的长度； push()里面直接写数组元素就行
+
+
+        // 16.pop()删除数组元素         删除数组的最后一个元素
+        var arr8 = [2, 3, 4];
+        arr8.pop();
+        console.log(arr8.pop());
+        console.log(arr8);
+        // 注意：pop可以删除数组中最后一个元素 一次只能删除一个；  pop()没有参数；     pop执行后会返回删除的那个元素
+
+
+        // 17.shift()删除数组元素         删除数组的第一个元素
+        var arr9 = [2, 3, 4];
+        arr9.shift();
+        console.log(arr9.shift());
+        console.log(arr9);
+        // 注意：shift可以删除数组中第一个元素 一次只能删除一个；  shift()没有参数；     shift执行后会返回删除的那个元素
+
+
+        // 18.数组排序（冒泡排序）使用完sort()方法后数组的顺序就是固定的
+        var arr10 = [2, 4, 5, 20, 2];
+        arr10.sort(function(a, b) {
+            return a - b;
+        }); //记住这个写法可以解决个位数和十位数排序的问题，其中a-b是升序； b-a是降序
+        console.log(arr10);
+
+        // 19.获取数组元素的索引号
+        var arr11 = ['red', 'green', 'black', 'blue', 'pink', 'blue'];
+        console.log(arr11.indexOf('blue')); //会返回第一个blue的索引号，如果找不到就返回-1（从前往后）
+        console.log(arr11.lastIndexOf('blue')); //从后往前查找blue，返回一个索引号，如果找不到也是返回-1
+
+
+        // 20.数组去重
+        // (1)定义两个数组，遍历旧数组。
+        // （2）查询新数组，判断新数组中有没有元素，有的话就不存，没有的话就存进去
+        // 封装一个函数
+        function unique(arr) {
+            var newArr = [];
+            for (var i = 0; i < arr.length; i++) {
+                // 判断元素是否存在
+                if (newArr.indexOf(arr[i]) == -1) {
+                    newArr.push(arr[i]);
+                }
+            }
+            return newArr;
+        }
+        var arr12 = unique(['c', 's', 'a', 'r', 's', 't', 'c', 'a', 'r']);
+        console.log(arr12);
+
+
+
+        // 21.数组转化为字符串
+        // (1)toString()可以将数组转化为字符串
+        var arr13 = [1, 2, 3];
+        console.log(arr13.toString());
+        // (2)join(分隔符)  (可以指定分隔符分开)
+        var arr14 = ['blue', 'pink', 'green'];
+        console.log(arr14.join()); //转化为字符串格式，默认用逗号分割开
+        console.log(arr14.join('-')); //转化为字符串格式，用指定分号隔开
+    </script>
+</head>
+
+<body>
+    <img src="images/数组的增删.png" alt="数组的增删">
+</body>
+
+</html>

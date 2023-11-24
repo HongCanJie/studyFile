@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <img src="../images/组件原型对象和Vue原型对象的联系.png" alt="组件原型对象和Vue原型对象的联系" style="width:1000px; height: 600px;">
+    <div id="root">
+        <!-- new组件实例 -->
+        <school></school>
+    </div>
+    <script>
+        Vue.prototype.x = 99;
+        // 创建school组件
+        const school = Vue.extend({
+            template: `
+                <div>
+                    <h3>学校名称:{{name}}</h3>
+                    <h3>地址:{{address}}</h3>
+                    <button @click='showX'>点我显示实例x</button>
+                </div>
+            `,
+            data() {
+                return {
+                    name: '广东白云学院',
+                    address: '广东广州'
+                }
+            },
+            methods: {
+                showX() {
+                    console.log(this);
+                }
+            }
+        })
+
+        new Vue({
+            el: '#root',
+            // 注册组件
+            components: {
+                school
+            }
+        })
+
+        /*
+        // 定义一个构造函数
+        function Demo() {
+            this.a = 1;
+            this.b = 2;
+        }
+
+        // 创建一个Demo的实例对象
+        const d = new Demo();
+
+        console.log(Demo.prototype);//构造函数Demo的原型对象
+
+        console.log(d.__proto__);//实例的对象原型
+
+        console.log(Demo.prototype === d.__proto__);//构造函数中的原型对象等于new出来的实例对象中的对象原型
+
+        // 在原型对象中追加一个x属性
+        Demo.prototype.x = 66;
+
+        console.log('@', d.x);
+        */
+
+
+    </script>
+</body>
+
+</html>

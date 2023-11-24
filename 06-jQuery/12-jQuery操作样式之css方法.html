@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        $(function () {
+            // 没有定义属性的值就会直接返回默认的值
+            console.log($('div').css('width'));
+            // 如果值是数字，则可以不加引号和单位
+            // $('div').css('width', 400);
+            // 如果以对象的形式书写，里面的属性是可以不加引号的
+            $('div').css({
+                width: 400,
+                height: '400px',
+                // 如果是复合属性则必须要采取驼峰命名法,它的值如果不是数字必须加引号
+                backgroundColor: 'red'
+            })
+        })
+    </script>
+</body>
+
+</html>

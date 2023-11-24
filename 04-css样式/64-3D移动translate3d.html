@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            /* 透视写在被观察元素的父盒子上面 */
+            /* 注意：视距一定要大于z轴移动的距离，否则盒子会消失 */
+            perspective: 300px;
+        }
+
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            margin: 100px auto;
+            /* transform: translateX(100px) translateY(100px) translateZ(100px); */
+            /* 1.translateZ沿着Z轴移动，后面单位一定要加px */
+            /* 2.translateZ(100px)表示向外移动100px （向我们眼睛的位置移动） */
+            /* 3.3D移动有简写的方法 */
+            /* transform: translate3d(x,y,z); */
+            transform: translate3d(100px, 100px, 100px);
+            /* 4.xyz是不能省略的，如果没有就写0 */
+            /* transform: translate3d(0, 100px, 100px); */
+            /* 5.translateZ越大，元素越大；translateZ越小，元素越小； */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+
+</html>

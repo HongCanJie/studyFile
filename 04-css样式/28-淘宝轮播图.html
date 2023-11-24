@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .tb-promo {
+            position: relative;
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+        }
+
+        .tb-promo img {
+            width: 520px;
+            height: 280px;
+        }
+
+        /* 并集选择器可以大大减少了代码量，大大提高了代码的复用性 */
+        .prev,
+        .next {
+            position: absolute;
+            /* 绝对定位盒子居中的常用方法 */
+            top: 50%;
+            margin-top: -15px;
+            width: 20px;
+            height: 30px;
+            background-color: rgba(0, 0, 0, .3);
+            text-align: center;
+            line-height: 30px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .tb-promo .prev {
+            left: 0;
+            /* border-top-right-radius: 15px; */
+            /* border-bottom-right-radius: 15px; */
+            border-radius: 0px 15px 15px 0px;
+        }
+
+        .tb-promo .next {
+            /* 如果一个盒子有left属性也有right属性，则默认会执行left属性  同理 既有top和bottom会执行top属性。 */
+            right: 0;
+            border-radius: 15px 0 0 15px;
+        }
+
+        .tb-promo .promo-nav {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -35px;
+            width: 70px;
+            height: 13px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 7px;
+        }
+
+        .promo-nav li {
+            float: left;
+            margin: 3px;
+            width: 8px;
+            height: 8px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+
+        .promo-nav .selected {
+            background-color: #ff5000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tb-promo">
+        <img src="images/tb.jpg">
+        <!-- 左侧按钮箭头 -->
+        <a href="#" class="prev">&lt;</a>
+        <!-- 右侧按钮箭头 -->
+        <a href="#" class="next">&gt;</a>
+        <!-- 小圆点 -->
+        <ul class="promo-nav">
+            <li class="selected"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+
+</html>

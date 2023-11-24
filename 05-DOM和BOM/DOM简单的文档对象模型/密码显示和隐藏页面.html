@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 400px;
+            border-bottom: 1px solid #ccc;
+            margin: 100px auto;
+        }
+        
+        .box input {
+            width: 370px;
+            height: 30px;
+            border: 0px;
+            /* 点击时候的出现的边框 */
+            outline: none;
+        }
+        
+        .box img {
+            position: absolute;
+            bottom: 3px;
+            right: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <label for="">
+            <img src="images/eye-close.png" alt="" id="eye">
+        </label>
+        <input type="password" name="" id="pwd">
+
+    </div>
+
+
+    <script>
+        var eye = document.getElementById('eye');
+        var pwd = document.getElementById('pwd');
+        // 操作判断的变量
+        var flag = false;
+        // 睁眼和闭眼
+        eye.onclick = function() {
+            if (flag) {
+                // 变为加密显示
+                pwd.type = 'password';
+                eye.src = 'images/eye-close.png';
+                // 把变量置反，下次就可以做另一个判断
+                flag = false;
+            } else {
+                // 变为明文显示
+                pwd.type = 'text';
+                eye.src = 'images/open.png';
+                // 把变量置反，下次就可以做另一个判断
+                flag = true;
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

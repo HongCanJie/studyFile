@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/jquery.js"></script>
+    <!-- 1.引入模板引擎template文件后在全局中就可以使用template函数 -->
+    <script src="lib/template-web.js"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <!-- 3.定义模板 -->
+    <!-- 3.1 模板的HTML结构必须要定义在script中   -->
+    <!-- 将type修改为text/html(默认为text/javascript) -->
+    <script type="text/html" id="tpl-user">
+
+    <!-- 在template语法中，{{}}可以进行变量的输出、对象属性的输出、三元表达式输出、逻辑或输出、加减乘除等表达式输出。 -->
+    <h1>{{name}}------{{age}}</h1>
+
+    <!-- @是原文输出，当value中包含了HTML结构，则需要原文输出才能保证HTML标签结构被渲染 -->
+    {{@text}}
+
+    <!-- 条件输出 条件判断语句中必须要有空格隔开-->
+    <div>{{if flag === 0}}flag结果是0{{else if flag === 1}}flag结果是1{{/if}}</div>
+
+    <ul>
+        {{each hobby}}
+        <li>索引是：{{$index}},循环项是：{{$value}}</li>
+        {{/each}}
+    </ul>
+
+    <h3>{{regTime| dateFormat}}</h3>
+    </script>
+    <script>
+        // 过滤时间格式
+        template.defaults.imports.dateFormat = function (date) {
+            // console.log(date);
+            var y = date.getFullYear();
+            var m = date.getMonth() + 1;
+            var d = date.getDate();
+
+            return y + '-' + m + '-' + d
+        }
+
+
+        // 2.定义数据
+        var data = { name: '张三', age: 22, text: '<h2>测试输出</h2>', flag: 0, hobby: ['吃饭', '睡觉', '打豆豆'], regTime: new Date() };
+        // 4.调用template函数
+        // 注意：tpl-user在这里虽然是id，但是不用加#
+        var htmlStr = template('tpl-user', data);
+        console.log(htmlStr);
+        // 5.DOM操作渲染到html页面上
+        $('#container').html(htmlStr);
+    </script>
+</body>
+
+</html>

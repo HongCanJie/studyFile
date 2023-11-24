@@ -1,0 +1,13 @@
+.get_job_focus .swiper {
+  width: 100%;
+  height: 100%;
+}
+.get_job_focus .swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.get_job_focus .swiper-slide img {
+  width: 50px;
+}

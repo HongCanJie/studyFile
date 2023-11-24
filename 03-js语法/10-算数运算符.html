@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 算数运算符包括+ - * /等（优先级先乘除后加减有括号要先算括号里面的）
+        // 1.取余%(用来判断一个数是否可以被整除)
+        console.log(5 % 3);
+        // 2.浮点数在算数运算符会有问题(出现精度问题)
+        console.log(0.1 + 0.2); //0.30000000000000004
+        // 3.我们不能直接拿着浮点数进行比较是否相等
+        var num = 0.1 + 0.2;
+        console.log(num == 0.3); //false
+
+
+        // 表达式是由数字运算符组合而成的称为表达式，其次表达式有返回值
+        // 自增自减是++和--，其中前置自增++age是先加1后返回值而后置自增age++是先返回后加1
+        var num2 = 10;
+        var f = num2++ + ++num2;
+        console.log(f);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

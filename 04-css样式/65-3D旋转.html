@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* perspective是眼睛与物体的距离，translateZ是物体与屏幕的距离 */
+            perspective: 500px;
+        }
+
+        img {
+            display: block;
+            /* 块级元素才能auto居中 */
+            margin: 100px auto;
+            transition: all .5s;
+        }
+
+        img:hover {
+            /* 旋转方向按照左手法则，拇指指向X轴或Y轴正方向，四指的方向指向着旋转的正方向 */
+            /* 1.rotateX沿X轴旋转 */
+            /* transform: rotateX(180deg); */
+            /* transform: rotateX(-45deg); */
+            /* 2.rotateY沿Y轴旋转 */
+            /* transform: rotateY(180deg); */
+            /* 3.rotateX沿Z轴旋转 */
+            /* transform: rotateZ(180deg); */
+            /* 4.旋转的简写 */
+            /* transform: rotate3d(1, 0, 0, 45deg); */
+            transform: rotate3d(1, 1, 0, 45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/pig.jpg">
+</body>
+
+</html>

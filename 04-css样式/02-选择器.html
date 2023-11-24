@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 多类选择器 */
+        
+        .box {
+            width: 150px;
+            height: 150px;
+            font-size: 30px;
+        }
+        
+        .red {
+            /* 背景色 */
+            background-color: red;
+        }
+        
+        .green {
+            background-color: green;
+        }
+        /* id选择器(必须是#号开头) */
+        
+        #pink {
+            color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 多类选择器：在一个class中可以写多个类名来同时调用多个选择器 -->
+    <!-- 使用场景：1.把一些标签相同的样式放在同一个类里面。 2.这些标签可以调用这个公共的类，再调用自己独有的类。从而节省代码方便管理。 -->
+    <!-- 使用方法和理解：1.各个类名中间用空格隔开。 2.就是给某个标签添加多个类或者标签有多个名字。 -->
+    <div class="box red">红色</div>
+    <div class="box green">绿色</div>
+    <div class="box red">红色</div>
+
+
+    <!-- id选择器：样式#定义，结构id调用，只能调用一次，别人切勿调用 -->
+    <div id="pink">迈克尔·杰克逊</div>
+    <!-- <div id="pink">ken</div> （注意不可以这样调用，一个id只能调用一次）-->
+
+    <!-- 注意：类选择器和id选择器的最大区别是类选择器可以被多个标签调用，而id选择器只能被唯一一个标签调用。 -->
+    <img src="images/选择器.png" alt="选择器">
+
+</body>
+
+</html>

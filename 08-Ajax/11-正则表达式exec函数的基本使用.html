@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var str = 'hello';
+        // 匹配/o/中的o
+        var pattern = /o/;
+        // 匹配成功后返回index为4, input为hello；   匹配失败后返回null
+        var result = pattern.exec(str);
+        console.log(result);
+    </script>
+</body>
+
+</html>

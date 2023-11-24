@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 逻辑运算符包括&&（逻辑与一假全假）   ||（逻辑或一真全真）    ！（逻辑非逻辑取反）
+        console.log(3 > 5 && 3 > 2); //false
+        console.log(3 > 5 || 3 > 2); //true
+        console.log(!(3 > 5 || 3 > 2)); //false
+
+        /* 逻辑中断 */
+
+        // 1.逻辑与的逻辑中断是如果第一个表达式的值为真，则返回第二个表达式；如果第一个表达式的值为假，则返回第一个表达式
+        console.log(123 && 456); //456
+        console.log(0 && 456); //0
+        // 如果有否定或空的就为假 
+        // 规律：前假返回前，前真返回后
+
+
+        // 2.逻辑或的逻辑中断是如果第一个表达式为真，则返回第一个表达式；如果第一个表达式为假，则返回第二个表达式
+        console.log(0 || 456); //456
+        // 规律：前真返回前，前假返回后
+        var num3 = 0;
+        console.log(123 || num++); //123
+        console.log(num3); //0   逻辑或的逻辑中断没有执行后面的++代码
+
+
+        // 赋值运算符   =  += -= /= *=   后面赋值给前面
+
+
+        // 注意：逻辑与的优先级比逻辑或的优先级高
+    </script>
+</head>
+
+<body>
+    <img src="images/优先级.png" alt="运算符优先级">
+</body>
+
+</html>

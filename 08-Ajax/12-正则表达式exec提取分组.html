@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var str = '<div>我是{{name}}</div>'
+        // [a-zA-Z]表示从小a到小z和大A到大Z的匹配，加号表示花括号中匹配的字符可以是任意多个,小括号用于提取花括号内的内容
+        var pattern = /{{([a-zA-Z]+)}}/;
+        var res = pattern.exec(str);
+        console.log(res);
+    </script>
+</body>
+
+</html>

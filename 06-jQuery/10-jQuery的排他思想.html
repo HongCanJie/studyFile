@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <script>
+        $(function () {
+            // 1.jquery中的隐式迭代可以一次性给所有元素绑定事件
+            $('button').click(function () {
+                // 2.干掉其他兄弟的背景颜色  隐式迭代
+                $(this).siblings('button').css('background', '');
+                // 3.留下自己
+                $(this).css('background', 'skyblue');
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        [class^='col'] {
+            border: 1px solid #ccc;
+        }
+
+        .container .row:nth-child(1) {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 通过row与column来创建行或列的页面布局 -->
+        <div class="row">
+            <!-- 大屏下每个占3份，共12等份 -->
+            <!-- 中等屏幕下每个盒子各占4份，共12份 -->
+            <!-- 小屏幕下的每个盒子各占6份，共12份 -->
+            <!-- 超小屏幕下的每个盒子各占12份，共12份 -->
+            <!-- 使用多类名的写法 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">1</div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">2</div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">3</div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">4</div>
+        </div>
+        <!-- 如果孩子的份数相加等于12 则孩子能占满整个的container的宽度 -->
+        <div class="row">
+            <!-- 大屏下第一个占6份，其他三个各占2份，共12等份 -->
+            <div class="col-lg-6">1</div>
+            <div class="col-lg-2">2</div>
+            <div class="col-lg-2">3</div>
+            <div class="col-lg-2">4</div>
+        </div>
+        <!-- 如果孩子的份数相加 小于 12 则占不满整个container的宽度会有空白-->
+        <div class="row">
+            <div class="col-lg-6">1</div>
+            <div class="col-lg-2">2</div>
+            <div class="col-lg-2">3</div>
+            <div class="col-lg-1">4</div>
+        </div>
+        <!-- 如果孩子的份数相加 大于 12 则会多余的那一列 另起一行显示-->
+        <div class="row">
+            <div class="col-lg-6">1</div>
+            <div class="col-lg-2">2</div>
+            <div class="col-lg-2">3</div>
+            <div class="col-lg-3">4</div>
+        </div>
+    </div>
+</body>
+
+</html>

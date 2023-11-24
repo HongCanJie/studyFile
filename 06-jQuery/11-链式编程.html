@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <script>
+        $(function () {
+            // 1.隐式迭代   绑定点击事件
+            $('button').click(function () {
+                // 2.排他思想 其他兄弟不变色
+                // $(this).siblings('button').css('background', '');
+                // 3.自己变色
+                // $(this).css('background', 'green');
+
+                // 链式编程(使用链式编程要注意顺序)  （从左向右看先给自身变色，再给兄弟加颜色）
+                $(this).css('background', 'green').siblings('button').css('background', '');
+            })
+        })
+    </script>
+</body>
+
+</html>

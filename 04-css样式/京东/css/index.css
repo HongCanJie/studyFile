@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0 auto;
+    font-family: -apple-system, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+.app {
+    height: 45px;
+    background-color: #fff;
+}
+
+.app ul {
+    list-style: none;
+}
+
+.app ul li {
+    float: left;
+    height: 45px;
+    background-color: #303330;
+    line-height: 45px;
+    text-align: center;
+}
+
+.app ul li:nth-child(1) {
+    width: 8%;
+}
+
+.app ul li:nth-child(1) img {
+    width: 10px;
+}
+
+.app ul li:nth-child(2) {
+    width: 10%;
+}
+
+.app ul li:nth-child(2) img {
+    width: 30px;
+    height: 30px;
+    /* 由于图片默认与基线对齐导致图片底下仍然有空隙,因此应该设置图片与中线对齐 */
+    vertical-align: middle;
+}
+
+.app ul li:nth-child(3) {
+    width: 57%;
+    color: #fff;
+}
+
+.app ul li:nth-child(4) {
+    width: 25%;
+    color: #fff;
+    background-color: #FF450E;
+}
+
+
+.search-wrap {
+    position: fixed;
+    /* 清除外边距塌陷 */
+    overflow: hidden;
+    max-width: 640px;
+    min-width: 320px;
+    width: 100%;
+    height: 44px;
+}
+
+.search-btn {
+    /* 在这里定位与浮动的区别是定位可以永远的把盒子定在那里,而浮动会由于页面的缩小而把最后的盒子挤下去 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 44px;
+}
+
+.search-btn::before {
+    content: "";
+    position: absolute;
+    bottom: 13px;
+    right: 7px;
+    display: block;
+    width: 20px;
+    height: 18px;
+    background: url(../images/s-btn.png) no-repeat;
+    background-size: 20px 18px;
+
+}
+
+.search {
+    position: relative;
+    height: 30px;
+    margin: 0 50px;
+    background-color: #fff;
+    border-radius: 15px;
+    margin-top: 7px;
+}
+
+.search-login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 44px;
+    color: #fff;
+    line-height: 44px;
+}
+
+.jd-icon {
+    position: absolute;
+    top: 7px;
+    left: 12px;
+    width: 20px;
+    height: 15px;
+    background: url(../images/jd.png) no-repeat;
+    background-size: 20px 15px;
+}
+
+/* 分割线 */
+.jd-icon::after {
+    position: absolute;
+    top: 0;
+    right: -8px;
+    content: "";
+    display: block;
+    width: 1px;
+    height: 15px;
+    background-color: #ccc;
+}
+
+/* 移动端二倍图精灵图缩放 */
+.sou {
+    position: absolute;
+    top: 8px;
+    left: 50px;
+    width: 18px;
+    height: 15px;
+    background-color: skyblue;
+    /* 在移动端中精灵图会放大两倍显示，因此需要先把精灵图缩小两倍后测量宽高 */
+    background: url(../images/jd-sprites.png) no-repeat -83px 0;
+    /* 确定缩放的坐标后图片也要对应的缩放   auto表示高度默认原来的高度*/
+    background-size: 200px auto;
+}
+
+
+.slider img {
+    width: 100%;
+}
+
+
+/* 小家电模块 */
+.brand {
+    /* 保证图片与文字顶部对齐，清除图片之间的顶部空隙 */
+    vertical-align: top;
+    overflow: hidden;
+    border-radius: 15px 15px 0 0;
+}
+
+.brand div {
+    float: left;
+    width: 33.33%;
+}
+
+.brand div a img {
+    width: 100%;
+}
+
+
+/* 导航栏 */
+nav {
+    padding-top: 5px;
+}
+
+nav a {
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+nav a img {
+    width: 40px;
+    margin: 10px 0;
+}
+
+nav a span {
+    display: block;
+}
+
+/* 清除浮动 */
+.clearfix:after {
+    /* 伪元素必须写content */
+    content: "";
+    /* 转换为块级元素 */
+    display: block;
+    /* 设置高度为0，宽度按照剩余页面宽度大小自动变化 */
+    height: 0;
+    /* 清除一行上的浮动 */
+    clear: both;
+    /* 将设置好的块级元素隐藏  */
+    visibility: hidden;
+}
+
+
+/* 新闻模块 */
+.news {
+    margin-top: 20px;
+}
+
+.news a {
+    float: left;
+    /* c3盒子模型 */
+    box-sizing: border-box;
+}
+
+.news a:nth-child(1) {
+    width: 50%;
+}
+
+/* 从第二个a开始选 */
+.news a:nth-child(n+2) {
+    width: 25%;
+    border-left: 1px solid #ccc;
+}
+
+.news img {
+    width: 100%;
+}

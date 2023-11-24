@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // 动画原理
+        // 1.获取元素
+        var div = document.querySelector('div');
+        // 3.利用定时器不断重复操作
+        var timer = setInterval(function () {
+            // 4.如果盒子走了400px的时候就停止移动
+            if (div.offsetLeft >= 400) {
+                clearTimeout(timer);
+            }
+            // 2.让盒子在当前的位置上移动一个距离
+            div.style.left = div.offsetLeft + 1 + 'px';
+        }, 30)
+    </script>
+</body>
+
+</html>

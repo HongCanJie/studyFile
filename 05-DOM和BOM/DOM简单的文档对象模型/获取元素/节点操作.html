@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>我是div</div>
+    <span>我是span</span>
+    <ul>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li>我是li3</li>
+        <li>我是li4</li>
+    </ul>
+    <div class="demo">
+        <div class="box">
+            <span class="erweima">X</span>
+        </div>
+    </div>
+    <script>
+        // 节点有很多种，换行、空格、元素节点、文本节点都属于节点
+        // 文本节点（包含文字、空格、换行）的nodeType是3，属性节点的nodeType是2，元素节点的nodeType是1
+        // 1.父节点parentNode(不需要加s)
+        var erweima = document.querySelector('.erweima'); //子
+        // var box = document.querySelector('.box'); //父
+        // 得到的是离元素最近的父级节点（亲爸爸）如果找不到父节点就返回null
+        console.log(erweima.parentNode);
+        // 2.子节点childNodes（需要加s）所有子节点包括 元素节点 文本节点等等
+        var ul = document.querySelector('ul'); //父
+        // var lis = ul.querySelectorAll('li');//子
+        console.log(ul.childNodes); //但是会把所有的换行和括号的字符都包含在内，要拿到子元素必须用for循环遍历找nodeType为1的。（标准）
+        // 3.children获取所有的子元素节点，实际开发常用
+        console.log(ul.children); //非标准但是常用
+        // 4.firstChild获取元素第一个节点 lastChild获取元素最后一个节点 不管是文本节点还是元素节点
+        console.log(ul.firstChild);
+        console.log(ul.lastChild);
+        // 5.firstElementChild返回第一个子节点 lastElementChild返回最后一个子节点（但是有兼容性问题IE9支持）
+        console.log(ul.firstElementChild);
+        console.log(ul.lastElementChild);
+        // 6.实际开发的写法，既没有兼容性问题又可以返回第一个元素
+        console.log(ul.children[0]); //第一个元素
+        console.log(ul.children[ul.children.length - 1]); //最后一个元素
+        // 7.兄弟节点
+        var div = document.querySelector('div');
+        // nextSibling下一个兄弟节点   包含元素节点或者文本节点等等
+        console.log(div.nextSibling);
+        // previousSibling上一个兄弟节点    包含元素节点或者文本节点等等
+        console.log(div.previousSibling);
+        // 8.nextElementSibling下一个元素兄弟节点  （有兼容性问题IE9以上支持）
+        console.log(div.nextElementSibling);
+        // 9. previousElementSibling上一个元素兄弟节点（ 有兼容性问题IE9以上支持）  （没有返回值返回null）
+        console.log(div.previousElementSibling);
+
+
+        // 10.创建元素节点
+        var li = document.createElement('li');
+        // 11.后面添加节点 node.appendChild(child)    node 父级      child子级 (不用加引号)(在后面追加li元素)
+        ul.appendChild(li);
+        // 前面添加节点node.insertBefore(child,指定元素);    node是父级节点 
+        var lili = document.createElement('li');
+        ul.insertBefore(lili, ul.children[0]);
+
+        // 12.删除节点 node.removeChild(child);     node是父级节点
+        ul.removeChild(ul.children[0]); //删除了第一个节点
+
+        // 13.复制节点 node.cloneNode()     node是子级节点
+        // 注意:括号里面为空或是false 是浅拷贝 只复制标签不复制内容
+        // 括号里面为true 是深拷贝 复制标签和复制内容
+        var lilili = ul.children[0].cloneNode(true);
+        ul.appendChild(lilili);
+    </script>
+</body>
+
+</html>

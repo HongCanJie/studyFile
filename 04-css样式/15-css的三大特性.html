@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            color: pink;
+            font: 12px/1.5 'Microsoft YaHei';
+        }
+
+        .class1 {
+            /* 被层叠 */
+            color: pink;
+            font-size: 12px;
+        }
+
+        .class1 {
+            /* 层叠 */
+            color: skyblue;
+        }
+
+        .class2 {
+            color: pink;
+            font-size: 14px;
+        }
+
+        .class3 {
+            /* 子元素集成父元素的body的行高1.5 */
+            /* 这个1.5就是当前元素文字大小font-size的1.5倍 所以当前div的行高就是21px */
+            font-size: 14px;
+        }
+
+        p {
+            /* 1.5* 16 = 24px 当前行高 */
+            font-size: 16px;
+        }
+
+        /* li没有手动指定文字大小 则会继承父亲的文字大小body  因此他的行高是12*1.5=18px */
+
+        .test {
+            color: aqua !important;
+        }
+
+        #demo {
+            color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- css三大特性：
+        1.层叠性（相同选择器的设置了相同样式取最后叠加上去的） 
+        2.继承性(子可以继承父亲的一些属性，如text-,font-,line-这些元素开头的以及color属性)  注意：a标签无法继承父元素属性的原因是a标签优先级较高，无法继承父元素的属性
+        3.优先级（选择器相同，则根据层叠性  选择器不同，则根据选择器权重执行）
+        优先级排列：!important>行内样式>id选择器>类选择器>元素选择器>继承或者*
+        优先级的权重可以叠加，优先级越高的叠加进去权重就越高
+        注意：权重虽然会叠加但是不会有进位问题，如10个0，0，0，1叠加只会这是0，0，0，10
+    -->
+    <!-- 层叠性 -->
+    <div class="class1">样式层叠性</div>
+    <!-- 继承性 -->
+    <div class="class2">
+        <p>龙生龙，凤生凤，老鼠的孩子会打洞</p>
+    </div>
+    <div class="class3">行高继承的特殊性</div>
+    <p>粉红色的回忆</p>
+    <ul>
+        <li>没有指定文字大小</li>
+    </ul>
+    <!-- 优先级  -->
+    <div class="test" id="demo" style="color:blue">优先级测试</div>
+    <img src="images/优先级权重表.png" alt="优先级权重表">
+</body>
+
+</html>

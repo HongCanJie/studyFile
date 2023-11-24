@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" value="手机">
+    <script>
+        var input = document.querySelector('input');
+        // 注册事件    得到焦点onfocus方法
+        input.onfocus = function() {
+            // console.log('得到了焦点');
+            // 点击input时存在value值就置空
+            if (this.value === '手机') {
+                this.value = '';
+            }
+            // 字体颜色加深
+            this.style.color = '#333';
+        }
+
+        // 注册事件    失去焦点onblur方法
+        input.onblur = function() {
+            // console.log('失去了焦点');
+            // 点击外面界面时value为空就赋值
+            if (this.value === '') {
+                // value属性是可读写的
+                this.value = '手机';
+            }
+            // 字体颜色变浅
+            this.style.color = '#999';
+        }
+    </script>
+</body>
+
+</html>

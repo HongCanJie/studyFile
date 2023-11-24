@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            /* 注意：动画效果一定要加定位 */
+            position: absolute;
+            left: 0;
+            top: 200px;
+            display: block;
+            width: 150px;
+            height: 150px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn500">span移动500</button>
+    <button class="btn800">span移动800</button>
+    <span>span</span>
+    <script>
+        function animate(obj, target, callback) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var step = (target - obj.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if (obj.offsetLeft == target) {
+                    clearTimeout(obj.timer);
+                    // 回调函数要放在定时器结束之后
+                    if (callback) {
+                        callback();
+                    }
+                }
+                obj.style.left = obj.offsetLeft + step + 'px';
+            }, 30);
+        }
+        var button500 = document.querySelector('.btn500');
+        var button800 = document.querySelector('.btn800');
+        var span = document.querySelector('span');
+        button500.addEventListener('click', function () {
+            animate(span, 500);
+        })
+        button800.addEventListener('click', function () {
+            // 回调函数，将函数当作一个参数
+            animate(span, 800, function () {
+                span.style.backgroundColor = 'skyblue';
+            });
+        })
+    </script>
+</body>
+
+</html>

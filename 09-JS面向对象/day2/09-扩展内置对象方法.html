@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 数组的原型对象
+        console.log(Array.prototype);
+        // 扩展数组的求和对象方法(只能用这种方法添加方法，不能用对象的形式添加方法，因为会覆盖数组原来本身自带的方法)
+        Array.prototype.sum = function () {
+            var sum = 0;
+            for (var i = 0; i < this.length; i++) {
+                sum += this[i];
+            }
+            return sum;
+        }
+        // arr其实就是Array创建出来的数组对象 new Array()
+        var arr = [1, 2, 3];
+        // 调用数组的原型对象里扩展求和方法
+        console.log(arr.sum());
+        console.log(Array.prototype);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 清除浮动的原因：由于父级在很多情况下，不方便给高度，但是子盒子浮动又不占有位置，最后父盒子高度为0时，就会影响下面的标准盒子。 */
+        /* 方法一：额外标签法（隔离法）
+            优点：方便书写   缺点：添加了无意义的标签，结构性差   
+            注意：新增的元素必须是块级元素不能是行内元素
+        */
+        .box {
+            border: 1px solid red;
+        }
+
+        .box .damao {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .box .ermao {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+
+        .footer {
+            height: 200px;
+            background-color: gray;
+            margin-bottom: 50px;
+        }
+
+        .box .clear {
+            /* 清除盒子左右两边元素的浮动 
+            */
+            clear: both;
+        }
+
+
+
+        /* 方法二：父级添加overflow（子不教，父之过）
+            优点：代码简洁   缺点：无法显示溢出部分（溢出会切除）
+        */
+        .box1 {
+            overflow: hidden;
+            border: 1px solid red;
+        }
+
+        .box1 .damao {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .box1 .ermao {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+
+        .footer1 {
+            height: 200px;
+            background-color: gray;
+            margin-bottom: 50px;
+        }
+
+        /* 方法三：after伪元素清除 */
+        .box2 {
+            border: 1px solid red;
+        }
+
+        .box2 .damao {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .box2 .ermao {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+
+        .footer2 {
+            height: 200px;
+            background-color: gray;
+            margin-bottom: 50px;
+        }
+
+        .clearfix:after {
+            /* 伪元素必须写content */
+            content: "";
+            /* 转换为块级元素 */
+            display: block;
+            /* 设置高度为0，宽度按照剩余页面宽度大小自动变化 */
+            height: 0;
+            /* 清除一行上的浮动 */
+            clear: both;
+            /* 将设置好的块级元素隐藏 */
+            visibility: hidden;
+        }
+
+        .clearfix {
+            /* IE6、7专有 */
+            *zoom: 1;
+        }
+
+        /* 方法四：双伪元素法
+        优点：代码简介   缺点：照顾低版本浏览器
+        */
+        .box3 {
+            border: 1px solid red;
+        }
+
+        .box3 .damao {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .box3 .ermao {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+
+        .footer3 {
+            height: 200px;
+            background-color: gray;
+            margin-bottom: 50px;
+        }
+
+        .clearfix:before,
+        .clearfix:after {
+            /* 伪元素必须设置content */
+            content: "";
+            /* 由于一行不能放置两个块级元素，因此设置成表格的形式相当于一行上两个表格 */
+            display: table;
+        }
+
+        .clearfix:after {
+            /* 给一行上的元素清除浮动 */
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 方法一：额外标签法（隔离法） -->
+    <div class="box">
+        <div class="damao">大毛</div>
+        <div class="ermao">二毛</div>
+        <!-- 在浮动标签末尾写多一个标签 -->
+        <div class="clear"></div>
+        <!-- 写行内元素的盒子清除浮动无效 -->
+        <!-- <span class="clear"></span> -->
+    </div>
+    <div class="footer"></div>
+
+    <!-- 方法二：父级添加overflow -->
+    <div class="box1">
+        <div class="damao">大毛</div>
+        <div class="ermao">二毛</div>
+    </div>
+    <div class="footer1"></div>
+
+    <!-- 方法三：after伪元素清除 -->
+    <div class="box2 clearfix">
+        <div class="damao">大毛</div>
+        <div class="ermao">二毛</div>
+    </div>
+    <div class="footer2"></div>
+
+    <!-- 方法四：双伪元素法 -->
+    <div class="box3 clearfix">
+        <div class="damao">大毛</div>
+        <div class="ermao">二毛</div>
+    </div>
+    <div class="footer3"></div>
+</body>
+
+</html>

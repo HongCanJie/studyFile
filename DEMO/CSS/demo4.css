@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.box {
+    height: 534px;
+}
+
+.title {
+    height: 80px;
+
+}

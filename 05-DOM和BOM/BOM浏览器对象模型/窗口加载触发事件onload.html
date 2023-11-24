@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // window.onload是窗口加载事件，当文档内容（图像、脚本文件、css文件等）完全加载完成会触发事件，就会调用这个处理函数
+        // 注意：如果多次定义onload只以最后一次定义为准
+        // window.onload = function() {
+        //     var btn = document.querySelector('button');
+        //     btn.addEventListener('click', function() {
+        //         alert('点击我');
+        //     })
+        // }
+        // window.onload = function() {
+        //     var btn = document.querySelector('button');
+        //     btn.addEventListener('click', function() {
+        //         alert('又点击了我');
+        //     })
+        // }
+
+        // 如果在addEventListener中定义则可以重复加载
+        window.addEventListener('load', function() {
+            var btn = document.querySelector('button');
+            btn.addEventListener('click', function() {
+                alert('点击我');
+            })
+        })
+        window.addEventListener('load', function() {
+                var btn = document.querySelector('button');
+                btn.addEventListener('click', function() {
+                    alert('又点击了我');
+                })
+            })
+            // 注意：DOMContentLoaded只要标签加载完后就会调用这个函数进行处理而不需要等待图片加载完毕或者css加载完毕、flash加载完毕，适合图片较多的网站（ie9以上）
+        document.addEventListener('DOMContentLoaded', function() {
+            alert(33);
+        })
+    </script>
+    <button>点击</button>
+</body>
+
+</html>

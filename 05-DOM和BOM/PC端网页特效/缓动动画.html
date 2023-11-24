@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            /* 注意：动画效果一定要加定位 */
+            position: absolute;
+            left: 0;
+            top: 200px;
+            display: block;
+            width: 150px;
+            height: 150px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn500">span移动500</button>
+    <button class="btn800">span移动800</button>
+    <span>span</span>
+    <script>
+        // 缓动动画核心算法： （目标值 - 现在的位置） / 10 = 每次移动的距离步长
+        // 停止条件： 让当前盒子的位置等于目标位置就停止定时器
+        function animate(obj, target) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                // 步长公式  注意：需要把步长值取整，这样最后的位移值才会是个整数   这里采用向上取整ceil
+                // var step = Math.ceil((target - obj.offsetLeft) / 10);
+                // step可能是正值也可能是负值，正值就往大的取，负值就往小的取
+                var step = (target - obj.offsetLeft) / 10;
+                // if表达式
+                // if (step > 0) {
+                //     step = Math.ceil(step);
+                // } else {
+                //     step = Math.floor(step);
+                // }
+                // 三元表达式 要赋值！
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                // 这里注意如果盒子要回来的话必须使用==，如果是大于等于的话返回一次就会被清除定时器，导致盒子只能移动一次
+                if (obj.offsetLeft == target) {
+                    clearTimeout(obj.timer);
+                }
+                obj.style.left = obj.offsetLeft + step + 'px';
+            }, 30);
+        }
+        var button500 = document.querySelector('.btn500');
+        var button800 = document.querySelector('.btn800');
+        var span = document.querySelector('span');
+        button500.addEventListener('click', function () {
+            animate(span, 500);
+        })
+        button800.addEventListener('click', function () {
+            animate(span, 800);
+        })
+    </script>
+</body>
+
+</html>
